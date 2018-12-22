@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_call"
+            android:id="@+id/nav_info"
             android:icon="@drawable/ic_self"
             android:title="个人信息" />
         <item
@@ -10,11 +10,11 @@
             android:icon="@drawable/ic_friends"
             android:title="朋友" />
         <item
-            android:id="@+id/nav_location"
+            android:id="@+id/nav_dormitory"
             android:icon="@drawable/ic_room"
             android:title="我的宿舍" />
         <item
-            android:id="@+id/nav_info"
+            android:id="@+id/nav_inform"
             android:icon="@drawable/ic_info"
             android:title="通知" />
 

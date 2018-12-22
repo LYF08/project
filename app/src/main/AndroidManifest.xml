@@ -9,22 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.xin.dormitory.LoginActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.xin.dormitory.RegisterActivity" />
-        <activity android:name="com.example.xin.dormitory.LoginHActivity" />
-        <activity android:name="com.example.xin.dormitory.LoginSActivity"
-            android:label="宿舍管理"/>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginHActivity" />
         <activity
-            android:name="com.example.xin.dormitory.dormitoryActivity"
+            android:name=".LoginSActivity"
+            android:label="宿舍管理" />
+        <activity
+            android:name=".dormitoryActivity"
             android:label="宿舍天地" />
-        <activity android:name="com.example.xin.dormitory.MyDormitory"
-            android:label="事务管理"/>
+        <activity
+            android:name=".MyDormitory"
+            android:label="事务管理" />
+        <activity android:name=".SelfInfoActivity" />
+        <activity android:name=".AlterSelfInfoActivity"></activity>
     </application>
 
 </manifest>

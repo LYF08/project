@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 public class LoginSActivity extends AppCompatActivity {
     private DrawerLayout mSDrawlayout;
+    private NavigationView navView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class LoginSActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         mSDrawlayout = findViewById(R.id.drawer_layout);
-        NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
+        navView = (NavigationView) findViewById(R.id.nav_view);
 
         ActionBar actionBar = getSupportActionBar();
 
@@ -41,13 +42,35 @@ public class LoginSActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         }
-        navView.setCheckedItem(R.id.nav_call);
+        /*navView.setCheckedItem(R.id.nav_info);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             public boolean onNavigationItemSelected(MenuItem item) {
                 mSDrawlayout.closeDrawers();
                 return true;
             }
-        });
+        });*/
+        setListeners();
+    }
+
+    private void setListeners(){
+        NavigationItem navigationItem = new NavigationItem();
+        navView.setNavigationItemSelectedListener(navigationItem);
+
+    }
+
+    private class NavigationItem implements NavigationView.OnNavigationItemSelectedListener{
+        @Override
+        public boolean onNavigationItemSelected(MenuItem item) {
+            Intent intent = null;
+            switch(item.getItemId()){
+                case R.id.nav_info:
+                    intent = new Intent(LoginSActivity.this, SelfInfoActivity.class);
+                    break;
+
+            }
+            startActivity(intent);
+            return true;
+        }
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
