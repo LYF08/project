@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/timg">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_dormitory"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        >
+        <TextView
+            android:id="@+id/toolbar_dormitory_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="宿舍事务"
+            android:textSize="20sp"
+
+            android:layout_centerHorizontal="true"/>
+
+    </android.support.v7.widget.Toolbar>
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content" -->
+    <!--android:text="宿舍事务"-->
+    <!--android:textSize="25sp"/>-->
+    <TextView
+        android:id="@+id/DormitoryNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="99dp"
+        android:text="宿舍号：XXXXX"
+        android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/button_StayAway"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="156dp"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/button_main"
+        android:text="离宿登记" />
+
+    <Button
+        android:id="@+id/button_Stay"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/button_StayAway"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/button_main"
+        android:text="留宿登记" />
+
+</RelativeLayout>
+

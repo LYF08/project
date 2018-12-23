@@ -63,9 +63,15 @@ public class LoginSActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(MenuItem item) {
             Intent intent = null;
             switch(item.getItemId()){
-                case R.id.nav_info:
+                case R.id.nav_info: {
                     intent = new Intent(LoginSActivity.this, SelfInfoActivity.class);
                     break;
+                }
+                case R.id.nav_dormitory:{
+                    intent = new Intent(LoginSActivity.this, MyDormitory.class);
+                    break;
+                }
+
 
             }
             startActivity(intent);
@@ -91,7 +97,7 @@ public class LoginSActivity extends AppCompatActivity {
 
     private class OnClick implements View.OnClickListener{
 
-        @Override//主界面的点击事件（宿舍天地，事务管理）
+        @Override//主界面的点击事件（宿舍天地，宿舍事务）
         public void onClick(View v){
             Intent intent = null;
             switch(v.getId()){
@@ -99,7 +105,7 @@ public class LoginSActivity extends AppCompatActivity {
                     intent = new Intent(LoginSActivity.this, dormitoryActivity.class);
                     break;
                 case R.id.button2:
-                    intent  = new Intent(LoginSActivity.this, MyDormitory.class);
+                    intent  = new Intent(LoginSActivity.this, DormitoryAffairsActivity.class);
                     break;
             }
            startActivity(intent);

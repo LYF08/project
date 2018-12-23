@@ -26,9 +26,14 @@
             android:label="宿舍天地" />
         <activity
             android:name=".MyDormitory"
-            android:label="事务管理" />
-        <activity android:name=".SelfInfoActivity" />
-        <activity android:name=".AlterSelfInfoActivity"></activity>
+            android:label="我的宿舍" />
+        <activity
+            android:name=".SelfInfoActivity"
+            android:label="个人信息"/>
+        <activity
+            android:name=".AlterSelfInfoActivity"
+            android:label="修改信息"/>
+        <activity android:name=".DormitoryAffairsActivity"></activity>
     </application>
 
 </manifest>
