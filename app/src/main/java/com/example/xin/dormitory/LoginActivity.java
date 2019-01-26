@@ -129,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
             //status代表状态,info代表信息
             String status = jsonObject.getString("status");
             String info = jsonObject.getString("info");
-            //下面两个toast不能正常显示
+            //下面两个toast不能正常显示，还没解决
             if(status.equals("1")){
                 Toast.makeText(LoginActivity.this,info,Toast.LENGTH_SHORT).show();
                 return true;
