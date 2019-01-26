@@ -8,14 +8,16 @@ import android.view.View;
 import android.widget.TextView;
 
 public class SelfInfoActivity extends AppCompatActivity {
+
     private TextView alter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_info);
         Toolbar toolbar =findViewById(R.id.self_info_toolbar);
         setSupportActionBar(toolbar);
-        alter = (TextView) findViewById(R.id.alter);
+        alter = findViewById(R.id.alter);
         alter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

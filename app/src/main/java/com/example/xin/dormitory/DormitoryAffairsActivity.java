@@ -11,7 +11,7 @@ public class DormitoryAffairsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dormitory_affairs);
-        Toolbar toolbar_dor = (Toolbar) findViewById(R.id.toolbar_dormitory);
+        Toolbar toolbar_dor = findViewById(R.id.toolbar_dormitory);
         toolbar_dor.setTitle("");
         setSupportActionBar(toolbar_dor);
         setSupportActionBar(toolbar_dor);

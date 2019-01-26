@@ -8,12 +8,12 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
+
     private RadioGroup rrg1;
     private EditText ret2;
     private Button rbt2;
@@ -21,20 +21,21 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText ret4;
     private TextView rtv3;
     private View v;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        rrg1 = (RadioGroup) findViewById(R.id.rrg_1);
-        ret2 = (EditText) findViewById(R.id.ret_2);
-        rbt2 = (Button) findViewById(R.id.rbt_2);
-        ret3 = (EditText) findViewById(R.id.ret_3);
-        ret4 = (EditText) findViewById(R.id.ret_4);
-        rtv3 = (TextView) findViewById(R.id.rtv_3) ;
+        rrg1 = findViewById(R.id.rrg_1);
+        ret2 = findViewById(R.id.ret_2);
+        rbt2 = findViewById(R.id.rbt_2);
+        ret3 = findViewById(R.id.ret_3);
+        ret4 = findViewById(R.id.ret_4);
+        rtv3 = findViewById(R.id.rtv_3);
         rrg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch(((RadioButton)group.findViewById(checkedId)).getId()){
+                switch(group.findViewById(checkedId).getId()){
                     case R.id.rrb_1:
                         ret2.setFocusable(false);
                         ret2.setFocusableInTouchMode(false);
@@ -77,11 +78,15 @@ public class RegisterActivity extends AppCompatActivity {
         setListeners();
 
     }
+
+
     private void setListeners(){
         OnClick onClick = new OnClick();
         rbt2.setOnClickListener(onClick);
 
     }
+
+
     private class OnClick implements View.OnClickListener{
 
         @Override

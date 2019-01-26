@@ -5,14 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -29,11 +27,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //组件初始化
-        et_account = (EditText)findViewById(R.id.et_account);
-        et_pwd = (EditText)findViewById(R.id.et_pwd);
-        cb1 = (CheckBox)findViewById(R.id.cb_1);
-        bt_register = (Button) findViewById(R.id.bt_register);
-        bt_login = (Button) findViewById(R.id.bt_login);
+        et_account = findViewById(R.id.et_account);
+        et_pwd = findViewById(R.id.et_pwd);
+        cb1 = findViewById(R.id.cb_1);
+        bt_register = findViewById(R.id.bt_register);
+        bt_login = findViewById(R.id.bt_login);
         cb1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -71,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v){
-            Intent intent = null;
+            Intent intent ;
             switch(v.getId()) {
                 case R.id.bt_register:
                     intent = new Intent(LoginActivity.this, RegisterActivity.class);
@@ -92,11 +90,10 @@ public class LoginActivity extends AppCompatActivity {
         String ID = et_account.getText().toString();
         String pwd = et_pwd.getText().toString();
         OkHttpClient client = new OkHttpClient();
-        Request request=null;
         RequestBody requestBody = new FormBody.Builder().add("ID",ID).add("password",pwd).build();
         //服务器地址，ip地址需要时常更换
         String address=HttpUtil.address+"login.php";
-        request = new Request.Builder().url(address).post(requestBody).build();
+        Request request = new Request.Builder().url(address).post(requestBody).build();
         //匿名内部类实现回调接口
         client.newCall(request).enqueue(new okhttp3.Callback(){
 
@@ -108,9 +105,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String responseData = response.body().string();
+                //下面两个toast都无法正常显示，暂时不知道原因
                 if(parseJSONDataForUserinfo(responseData)){
+                    Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, LoginSActivity.class);
                     startActivity(intent);
+                }else{
+                    Toast.makeText(LoginActivity.this,"账号不存在或账号密码不匹配",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -119,22 +120,16 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * 根据服务器返回的JSON数据判断用户是否存在
-     * @param JSONData
-     * @return true OR false
+     * @param JSONData 返回的JSON数据
+     * @return true OR false 表示解析是否成功
      */
     private boolean parseJSONDataForUserinfo(String JSONData){
         try {
-            //JSONArray jsonArray = new JSONArray(JSONData);
             JSONObject jsonObject = new JSONObject(JSONData);
-            //status代表状态,info代表信息
+            //status代表状态
             String status = jsonObject.getString("status");
-            String info = jsonObject.getString("info");
-            //下面两个toast不能正常显示，还没解决
             if(status.equals("1")){
-                Toast.makeText(LoginActivity.this,info,Toast.LENGTH_SHORT).show();
                 return true;
-            }else{
-                Toast.makeText(LoginActivity.this,info,Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
             e.printStackTrace();

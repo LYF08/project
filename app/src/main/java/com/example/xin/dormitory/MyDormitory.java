@@ -14,6 +14,8 @@ public class MyDormitory extends AppCompatActivity {
         Toolbar toolbar =findViewById(R.id.toolbar_dorm2);
         setSupportActionBar(toolbar);
     }
+
+
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.toolbar,menu);

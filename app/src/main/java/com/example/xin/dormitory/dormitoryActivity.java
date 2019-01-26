@@ -16,8 +16,11 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class dormitoryActivity extends AppCompatActivity {
+
     private List<Talk> talkList=new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -25,7 +28,7 @@ public class dormitoryActivity extends AppCompatActivity {
             Toolbar mToolbar = findViewById(R.id.toolbar_dorm1);
             setSupportActionBar(mToolbar);
             initTalkers();
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list_view);
+            RecyclerView recyclerView = findViewById(R.id.list_view);
             recyclerView.setHasFixedSize(true);
             LinearLayoutManager layoutManager = new LinearLayoutManager(this);
             recyclerView.setLayoutManager(layoutManager);
@@ -33,6 +36,8 @@ public class dormitoryActivity extends AppCompatActivity {
             TalkAdapter adapter = new TalkAdapter(talkList);
             recyclerView.setAdapter(adapter);
     }
+
+
     private  void initTalkers(){
         Talk talk1=new Talk("Mike",R.drawable.bg_checkbox);
         talkList.add(talk1);
@@ -43,38 +48,45 @@ public class dormitoryActivity extends AppCompatActivity {
         Talk talk4=new Talk("Bob",R.drawable.bg_checkbox);
         talkList.add(talk4);
     }
+
+
     public boolean onCreateOptionsMenu(Menu menu)//选择标题栏选项
     {
         getMenuInflater().inflate(R.menu.add,menu);
         return true;
     }
 }
-class TestDecoration extends RecyclerView.ItemDecoration//自定义分割线
-{  private static final int[] attrs=new int[]{android.R.attr.listDivider};
-   private Drawable mDivider;
-    public TestDecoration(Context context)
-{ TypedArray typedArray=context.obtainStyledAttributes(attrs);
-mDivider=typedArray.getDrawable(0); }
-@Override
-    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state)
-{   int left=parent.getPaddingLeft();
-    int right=parent.getWidth()-parent.getPaddingRight();
-    int childCount=parent.getChildCount();
-for(int i=0;i<childCount;i++)
-{
-    View child=parent.getChildAt(i);
-    RecyclerView.LayoutParams layoutParams=(RecyclerView.LayoutParams)child.getLayoutParams();
-    int top=child.getBottom()+layoutParams.bottomMargin;
-    int bottom=top+mDivider.getIntrinsicHeight();
-    mDivider.setBounds(left,top,right,bottom);
-    mDivider.draw(c);
-  }
-}
-@Override
-public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state)//设置分割线
-{
-    outRect.set(0,0,mDivider.getIntrinsicHeight(),0);
-}
+
+//自定义分割线
+class TestDecoration extends RecyclerView.ItemDecoration {
+
+    private static final int[] attrs=new int[]{android.R.attr.listDivider};
+    private Drawable mDivider;
+
+    public TestDecoration(Context context) {
+        TypedArray typedArray=context.obtainStyledAttributes(attrs);
+        mDivider=typedArray.getDrawable(0);
+    }
+    @Override
+    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+        int left=parent.getPaddingLeft();
+        int right=parent.getWidth()-parent.getPaddingRight();
+        int childCount=parent.getChildCount();
+        for(int i=0;i<childCount;i++) {
+            View child=parent.getChildAt(i);
+            RecyclerView.LayoutParams layoutParams=(RecyclerView.LayoutParams)child.getLayoutParams();
+            int top=child.getBottom()+layoutParams.bottomMargin;
+            int bottom=top+mDivider.getIntrinsicHeight();
+            mDivider.setBounds(left,top,right,bottom);
+            mDivider.draw(c);
+        }
+    }
+
+
+    @Override               //设置分割线
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        outRect.set(0,0,mDivider.getIntrinsicHeight(),0);
+    }
 }
 
 

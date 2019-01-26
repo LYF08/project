@@ -11,13 +11,14 @@ import android.view.MenuItem;
 public class LoginHActivity extends AppCompatActivity {
 
     private DrawerLayout mHDrawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_h);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_1);
+        Toolbar toolbar = findViewById(R.id.toolbar_1);
         setSupportActionBar(toolbar);
-        mHDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_1);
+        mHDrawerLayout = findViewById(R.id.drawer_layout_1);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);

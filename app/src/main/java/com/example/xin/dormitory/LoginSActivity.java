@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 
 public class LoginSActivity extends AppCompatActivity {
+
     private DrawerLayout mSDrawlayout;
     private NavigationView navView;
 
@@ -28,12 +29,12 @@ public class LoginSActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         mSDrawlayout = findViewById(R.id.drawer_layout);
-        navView = (NavigationView) findViewById(R.id.nav_view);
+        navView = findViewById(R.id.nav_view);
 
         ActionBar actionBar = getSupportActionBar();
 
-        Button dormbutton=(Button) findViewById(R.id.button1);
-        Button setbutton=(Button) findViewById(R.id.button2);
+        Button dormbutton= findViewById(R.id.button1);
+        Button setbutton= findViewById(R.id.button2);
         OnClick onClick = new OnClick();
         dormbutton.setOnClickListener(onClick);
         setbutton.setOnClickListener(onClick);
@@ -46,13 +47,16 @@ public class LoginSActivity extends AppCompatActivity {
         setListeners();
     }
 
+
     private void setListeners(){
         NavigationItem navigationItem = new NavigationItem();
         navView.setNavigationItemSelectedListener(navigationItem);
 
     }
 
+
     private class NavigationItem implements NavigationView.OnNavigationItemSelectedListener{
+
         @Override
         public boolean onNavigationItemSelected(MenuItem item) {
             Intent intent = null;
@@ -65,19 +69,20 @@ public class LoginSActivity extends AppCompatActivity {
                     intent = new Intent(LoginSActivity.this, MyDormitory.class);
                     break;
                 }
-
-
             }
             startActivity(intent);
             return true;
         }
     }
 
+
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.toolbar,menu);
         return  super.onCreateOptionsMenu(menu);
     }
+
+
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.backup_item:
@@ -88,6 +93,7 @@ public class LoginSActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     private class OnClick implements View.OnClickListener{
 
