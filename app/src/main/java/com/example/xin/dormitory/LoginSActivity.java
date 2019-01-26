@@ -42,13 +42,7 @@ public class LoginSActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         }
-        /*navView.setCheckedItem(R.id.nav_info);
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            public boolean onNavigationItemSelected(MenuItem item) {
-                mSDrawlayout.closeDrawers();
-                return true;
-            }
-        });*/
+
         setListeners();
     }
 
