@@ -1,10 +1,12 @@
 package com.example.xin.dormitory;
 
 import android.content.Intent;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -105,35 +107,26 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String responseData = response.body().string();
-                //下面两个toast都无法正常显示，暂时不知道原因
-                if(parseJSONDataForUserinfo(responseData)){
-                    Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
+                if(HttpUtil.parseJSONDataForUserinfo(responseData)){
+                    //子线程中操作Toast会出现问题，所以用runOnUiThread
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     Intent intent = new Intent(LoginActivity.this, LoginSActivity.class);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(LoginActivity.this,"账号不存在或账号密码不匹配",Toast.LENGTH_SHORT).show();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(LoginActivity.this,"账号不存在或账号密码不匹配",Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
         });
     }
 
-
-    /**
-     * 根据服务器返回的JSON数据判断用户是否存在
-     * @param JSONData 返回的JSON数据
-     * @return true OR false 表示解析是否成功
-     */
-    private boolean parseJSONDataForUserinfo(String JSONData){
-        try {
-            JSONObject jsonObject = new JSONObject(JSONData);
-            //status代表状态
-            String status = jsonObject.getString("status");
-            if(status.equals("1")){
-                return true;
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 }

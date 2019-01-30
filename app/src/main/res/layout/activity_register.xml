@@ -3,103 +3,121 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp">
+
     <TextView
-        android:id="@+id/rtv_1"
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text = "注  册"
         android:textSize="30sp"
         android:gravity="center"/>
+
     <EditText
-        android:id="@+id/ret_1"
+        android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
         android:hint="姓  名"
         android:gravity="center"
-        android:layout_below="@id/rtv_1"
+        android:layout_below="@id/tv_title"
         android:layout_marginTop="15dp"/>
-    <TextView
-        android:id="@+id/rtv_2"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:padding="10dp"
-        android:text="    身  份  ："
-        android:background="@drawable/bg_register"
-        android:layout_below="@id/ret_1"
-        android:layout_marginTop="10dp"
-        android:textSize="15sp"/>
-    <RadioGroup
-        android:id="@+id/rrg_1"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@id/ret_1"
-        android:layout_marginTop="10dp"
-        android:gravity="right"
-        android:paddingRight="30dp"
-        android:paddingTop="5dp"
-        android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/rrb_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="宿管"
-            android:textSize="20sp"/>
-        <RadioButton
-            android:id="@+id/rrb_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="学生"
-            android:textSize="20sp"/>
-    </RadioGroup>
+
     <EditText
-        android:id="@+id/ret_2"
+        android:id="@+id/et_dorm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_register"
+        android:hint="宿舍号"
+        android:gravity="center"
+        android:layout_below="@id/et_name"
+        android:layout_marginTop="10dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/tv_status"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:padding="10dp"-->
+        <!--android:text="    身  份  ："-->
+        <!--android:background="@drawable/bg_register"-->
+        <!--android:layout_below="@id/et_name"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:textSize="15sp"/>-->
+    <!--<RadioGroup-->
+        <!--android:id="@+id/rg"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_below="@id/et_name"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:gravity="right"-->
+        <!--android:paddingRight="30dp"-->
+        <!--android:paddingTop="5dp"-->
+        <!--android:orientation="horizontal">-->
+        <!--<RadioButton-->
+            <!--android:id="@+id/rb_manager"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="宿管"-->
+            <!--android:textSize="20sp"/>-->
+        <!--<RadioButton-->
+            <!--android:id="@+id/rb_student"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="50dp"-->
+            <!--android:text="学生"-->
+            <!--android:textSize="20sp"/>-->
+    <!--</RadioGroup>-->
+    <!--如要改回radiobutton,下面的layout_below记得修改-->
+    <EditText
+        android:id="@+id/et_ID"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
         android:hint="学  号"
         android:gravity="center"
-        android:layout_below="@id/rtv_2"
+        android:layout_below="@id/et_dorm"
         android:layout_marginTop="10dp"/>
+
     <EditText
-        android:id="@+id/ret_3"
+        android:id="@+id/et_pwd"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
         android:hint="6-10位密码"
         android:gravity="center"
-        android:layout_below="@id/ret_2"
+        android:layout_below="@id/et_ID"
         android:layout_marginTop="10dp"
         android:maxLength="10"
         android:inputType="textPassword"/>
+
     <EditText
-        android:id="@+id/ret_4"
+        android:id="@+id/et_confirm"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
         android:hint="再次确认密码"
         android:gravity="center"
-        android:layout_below="@id/ret_3"
+        android:layout_below="@id/et_pwd"
         android:layout_marginTop="10dp"
         android:maxLength="10"
         android:inputType="textPassword"/>
+
     <TextView
-        android:id="@+id/rtv_3"
+        android:id="@+id/rtv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#f50606"
-        android:layout_below="@id/ret_4"/>
+        android:layout_below="@id/et_confirm"/>
+
     <EditText
-        android:id="@+id/ret_5"
+        android:id="@+id/et_phone"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
         android:hint="手机号"
         android:gravity="center"
-        android:layout_below="@id/rtv_3"
+        android:layout_below="@id/rtv"
         android:layout_marginTop="10dp"
         android:inputType="number"/>
+
     <!--<EditText-->
         <!--android:id="@+id/ret_6"-->
         <!--android:layout_width="200dp"-->
@@ -124,14 +142,15 @@
         <!--android:textColor="#fff"-->
         <!--android:background = "@drawable/bg_rbutton01"/>-->
     <Button
-        android:id="@+id/rbt_2"
+        android:id="@+id/bt_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="确认注册"
         android:gravity="center"
-        android:layout_below="@id/ret_5"
+        android:layout_below="@id/et_phone"
         android:layout_marginTop="20dp"
         android:layout_marginRight="125dp"
         android:layout_marginLeft="125dp"
         android:textColor="#000"/>
+
 </RelativeLayout>
