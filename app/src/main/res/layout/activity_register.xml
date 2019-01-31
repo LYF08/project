@@ -104,6 +104,7 @@
         android:id="@+id/rtv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:textColor="#f50606"
         android:layout_below="@id/et_confirm"/>
 

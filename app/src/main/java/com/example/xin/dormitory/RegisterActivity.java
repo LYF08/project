@@ -65,6 +65,10 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     */
+
+        rtv.setText("密码不能为空");
+        bt_confirm.setEnabled(false);
+
         et_confirm.addTextChangedListener(new TextWatcher() {
             private CharSequence temp;
             @Override
@@ -83,7 +87,13 @@ public class RegisterActivity extends AppCompatActivity {
                 String str2;
                 str1 = et_pwd.getText().toString();
                 str2 = et_confirm.getText().toString();
-                if(str1.equals(str2)){
+                if(str1.length()==0){
+                    rtv.setText("密码不能为空");
+                    bt_confirm.setEnabled(false);
+                } else if(str1.length()<6||str1.length()>10){
+                    rtv.setText("密码长度应该为6-10个字符");
+                    bt_confirm.setEnabled(false);
+                }else if(str1.equals(str2)){
                     rtv.setText("");
                     bt_confirm.setEnabled(true);
                 }else{
@@ -136,18 +146,15 @@ public class RegisterActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MyApplication.getContext(),"注册成功",Toast.LENGTH_SHORT).show();
                                     }
                                 });
-                                bt_confirm.setEnabled(false);
-                                //这里还有bug没解决
-                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                startActivity(intent);
+                                finish();
                             }else{
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(RegisterActivity.this,"注册失败",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MyApplication.getContext(),"注册失败",Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
