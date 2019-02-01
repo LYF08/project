@@ -5,6 +5,7 @@
     $name=$_POST['name'];//APP post过来的姓名
     $dorm=$_POST['dormID'];//APP post过来的宿舍号
     $phone=$_POST['phone'];//APP post过来的手机号
+    $nickname=$_POST['nickname'];//APP post过来的昵称
     $sql=mysqli_query($conn,"SELECT * FROM userinfo WHERE ID ='$id'");
     $result=mysqli_fetch_assoc($sql);
     if(!empty($result)){
@@ -12,7 +13,7 @@
         $back['info']="user has been existed";
         echo(json_encode($back));
     }else{
-        $result=mysqli_query($conn,"INSERT INTO userinfo(ID,name,dormID,phone,password) VALUES('$id','$name','$dorm','$phone','$pwd')");
+        $result=mysqli_query($conn,"INSERT INTO userinfo(ID,name,dormID,phone,password,nickname) VALUES('$id','$name','$dorm','$phone','$pwd','$nickname')");
         if($result){
             $back['status']="2";
             $back['info']="register success";

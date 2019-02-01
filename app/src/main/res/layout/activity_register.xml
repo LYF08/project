@@ -142,13 +142,23 @@
         <!--android:layout_marginRight="5dp"-->
         <!--android:textColor="#fff"-->
         <!--android:background = "@drawable/bg_rbutton01"/>-->
+    <EditText
+        android:id="@+id/et_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_register"
+        android:hint="昵称"
+        android:gravity="center"
+        android:layout_below="@id/et_phone"
+        android:layout_marginTop="10dp" />
+
     <Button
         android:id="@+id/bt_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="确认注册"
         android:gravity="center"
-        android:layout_below="@id/et_phone"
+        android:layout_below="@id/et_nickname"
         android:layout_marginTop="20dp"
         android:layout_marginRight="125dp"
         android:layout_marginLeft="125dp"

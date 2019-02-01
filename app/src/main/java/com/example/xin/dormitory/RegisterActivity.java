@@ -31,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText et_name;
     private EditText et_dorm;
     private EditText et_phone;
+    private EditText et_nickname;
     private TextView rtv;
     private View v;
 
@@ -46,6 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
         et_dorm = findViewById(R.id.et_dorm);
         et_name = findViewById(R.id.et_name);
         et_phone = findViewById(R.id.et_phone);
+        et_nickname = findViewById(R.id.et_nickname);
         rtv = findViewById(R.id.rtv);
         /*
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -125,10 +127,11 @@ public class RegisterActivity extends AppCompatActivity {
                     String name = et_name.getText().toString();
                     String phone = et_phone.getText().toString();
                     String dorm = et_dorm.getText().toString();
+                    String nickname = et_nickname.getText().toString();
 
                     OkHttpClient client = new OkHttpClient();
                     RequestBody requestBody = new FormBody.Builder().add("ID",ID).add("password",pwd).add("dormID",dorm)
-                            .add("phone",phone).add("name",name).build();
+                            .add("phone",phone).add("name",name).add("nickname",nickname).build();
                     //服务器地址，ip地址需要时常更换
                     String address=HttpUtil.address+"register.php";
                     Request request = new Request.Builder().url(address).post(requestBody).build();

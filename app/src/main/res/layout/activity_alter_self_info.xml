@@ -53,7 +53,7 @@
         android:layout_alignLeft="@id/room"
         android:ems="12"
         android:inputType="textPersonName"
-        android:hint="个人账号"/>
+        android:hint="昵称"/>
 
     <EditText
         android:id="@+id/contact"
