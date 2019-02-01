@@ -23,47 +23,39 @@
     <!--注意不能用alignParentBotton-->
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="270dp"
-        android:ems="12"
-        android:hint="姓名"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/room"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/name"
-        android:layout_alignLeft="@id/name"
+        android:layout_marginTop="320dp"
         android:ems="12"
         android:inputType="textPersonName"
-        android:hint='宿舍号' />
+        android:hint="昵称" />
 
     <EditText
-        android:id="@+id/account"
+        android:id="@+id/phone"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/room"
-        android:layout_alignLeft="@id/room"
-        android:ems="12"
-        android:inputType="textPersonName"
-        android:hint="昵称"/>
-
-    <EditText
-        android:id="@+id/contact"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/account"
-        android:layout_alignLeft="@id/account"
+        android:layout_below="@id/nickname"
+        android:layout_alignLeft="@id/nickname"
         android:ems="12"
         android:inputType="textPersonName"
         android:hint="联系方式"/>
+
+    <TextView
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:drawableLeft="@drawable/ic_save"
+        android:text="保存"
+        android:clickable="true"/>
 
 </RelativeLayout>

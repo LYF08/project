@@ -1,6 +1,7 @@
 package com.example.xin.dormitory;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,7 +14,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 
 public class LoginSActivity extends AppCompatActivity {
@@ -30,6 +42,39 @@ public class LoginSActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         mSDrawlayout = findViewById(R.id.drawer_layout);
         navView = findViewById(R.id.nav_view);
+
+        //把信息存到sharedpreferences里
+        OkHttpClient client = new OkHttpClient();
+        RequestBody requestBody = new FormBody.Builder().add("ID",HttpUtil.ID).build();
+        //服务器地址，ip地址需要时常更换
+        String address=HttpUtil.address+"info.php";
+        Request request = new Request.Builder().url(address).post(requestBody).build();
+        //匿名内部类实现回调接口
+        client.newCall(request).enqueue(new okhttp3.Callback(){
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String responseData = response.body().string();
+                try {
+                    JSONObject jsonObject = new JSONObject(responseData);
+                    //存储除密码以外的所有信息
+                    SharedPreferences.Editor editor = getSharedPreferences("data",MODE_PRIVATE).edit();
+                    editor.putString("ID",jsonObject.getString("ID"));
+                    editor.putString("name",jsonObject.getString("name"));
+                    editor.putString("dormID",jsonObject.getString("dormID"));
+                    editor.putString("phone",jsonObject.getString("phone"));
+                    editor.putString("nickname",jsonObject.getString("nickname"));
+                    editor.apply();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         ActionBar actionBar = getSupportActionBar();
 
@@ -86,9 +131,9 @@ public class LoginSActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.backup_item:
-            {Toast.makeText(this,"you click backup",Toast.LENGTH_SHORT).show();break;}
+                break;
             case android.R.id.home :
-            {mSDrawlayout.openDrawer(GravityCompat.START);Toast.makeText(this,"you click home",Toast.LENGTH_SHORT).show();break;}
+            {mSDrawlayout.openDrawer(GravityCompat.START);break;}
             default:break;
         }
         return super.onOptionsItemSelected(item);

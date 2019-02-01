@@ -13,7 +13,7 @@
                       <PersistentState>
                         <option name="children">
                           <map>
-                            <entry key="notification">
+                            <entry key="actionbar">
                               <value>
                                 <PersistentState>
                                   <option name="children">
@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/D:/Android%20studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_create_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/D:/Android%20studio/plugins/android/lib/android.jar!/images/material_design_icons/editor/ic_mode_edit_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -39,11 +39,38 @@
                                 </PersistentState>
                               </value>
                             </entry>
+                            <entry key="notification">
+                              <value>
+                                <PersistentState>
+                                  <option name="children">
+                                    <map>
+                                      <entry key="clipartAsset">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="url" value="jar:file:/D:/Android%20studio/plugins/android/lib/android.jar!/images/material_design_icons/notification/ic_airline_seat_individual_suite_black_24dp.xml" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                    </map>
+                                  </option>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="outputName" value="ic_alter" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
                           </map>
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="NOTIFICATION" />
+                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>

@@ -9,11 +9,8 @@ import okhttp3.*;
 public class HttpUtil {
     //服务器地址，ip地址需要时常更换
     public static final String address="http://192.168.88.100:8080/dormitoryPHP/";
-    public static void sendOkHttpRequest(String address, okhttp3.Callback callback){
-        OkHttpClient client = new OkHttpClient();
-        Request request=new Request.Builder().url(address).build();
-        client.newCall(request).enqueue(callback);
-    }
+    //由于Okhttp3的封装，难以获得php返回的数据，故记录用户ID，方便之后获取用户信息的操作
+    public static String ID = null;
     /**
      * 根据服务器返回的JSON数据判断用户是否存在
      * @param JSONData 返回的JSON数据
@@ -27,6 +24,7 @@ public class HttpUtil {
             switch (status){
                 case"1": return true;
                 case"2": return true;
+                case"3": return true;
                 default: return false;
             }
         } catch (JSONException e) {

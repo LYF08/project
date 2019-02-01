@@ -13,8 +13,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
-import org.json.JSONException;
-import org.json.JSONObject;
 import java.io.IOException;
 import okhttp3.*;
 
@@ -90,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
      */
     private void loginHelp(){
         String ID = et_account.getText().toString();
+        HttpUtil.ID = ID;
         String pwd = et_pwd.getText().toString();
         OkHttpClient client = new OkHttpClient();
         RequestBody requestBody = new FormBody.Builder().add("ID",ID).add("password",pwd).build();
