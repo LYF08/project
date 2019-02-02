@@ -40,6 +40,7 @@
         android:layout_marginTop="320dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:gravity="center"
         android:hint="昵称" />
 
     <TextView
@@ -61,6 +62,7 @@
         android:layout_alignLeft="@id/nickname"
         android:ems="10"
         android:inputType="textPersonName"
+        android:gravity="center"
         android:hint="联系方式"/>
 
     <TextView

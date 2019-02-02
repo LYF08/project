@@ -9,32 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".MyApplication">
-        <activity android:name=".LoginActivity">
+        android:name=".Utility.MyApplication">
+        <activity android:name=".Common.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginHActivity" />
+        <activity android:name=".Common.RegisterActivity" />
+        <activity android:name=".Houseparent.LoginHActivity" />
         <activity
-            android:name=".LoginSActivity"
+            android:name=".Student.LoginSActivity"
             android:label="宿舍管理" />
         <activity
-            android:name=".dormitoryActivity"
+            android:name=".Student.dormitoryActivity"
             android:label="宿舍天地" />
         <activity
-            android:name=".MyDormitory"
+            android:name=".Student.MyDormitory"
             android:label="我的宿舍" />
         <activity
-            android:name=".SelfInfoActivity"
+            android:name=".Student.SelfInfoActivity"
             android:label="个人信息"/>
         <activity
-            android:name=".AlterSelfInfoActivity"
+            android:name=".Student.AlterSelfInfoActivity"
             android:label="修改信息"/>
         <activity
-            android:name=".DormitoryAffairsActivity"></activity>
+            android:name=".Student.DormitoryAffairsActivity"></activity>
     </application>
 
 </manifest>

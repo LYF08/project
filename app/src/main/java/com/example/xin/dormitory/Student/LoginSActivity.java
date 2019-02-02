@@ -1,4 +1,4 @@
-package com.example.xin.dormitory;
+package com.example.xin.dormitory.Student;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.xin.dormitory.R;
+import com.example.xin.dormitory.Utility.HttpUtil;
+import com.example.xin.dormitory.Utility.MyApplication;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -154,7 +158,7 @@ public class LoginSActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()){
                 case R.id.button1:
-                    intent = new Intent(LoginSActivity.this, dormitoryActivity.class);
+                    intent = new Intent(LoginSActivity.this, DormitoryActivity.class);
                     break;
                 case R.id.button2:
                     intent  = new Intent(LoginSActivity.this, DormitoryAffairsActivity.class);

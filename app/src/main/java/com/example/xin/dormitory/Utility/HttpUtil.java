@@ -1,4 +1,4 @@
-package com.example.xin.dormitory;
+package com.example.xin.dormitory.Utility;
 
 
 import org.json.JSONException;

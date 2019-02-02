@@ -1,4 +1,4 @@
-package com.example.xin.dormitory;
+package com.example.xin.dormitory.Utility;
 
 import android.app.Application;
 import android.content.Context;

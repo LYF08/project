@@ -1,4 +1,4 @@
-package com.example.xin.dormitory;
+package com.example.xin.dormitory.Student;
 
 public class Talk {
     private String name;

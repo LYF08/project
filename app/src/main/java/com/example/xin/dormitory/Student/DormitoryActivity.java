@@ -1,4 +1,4 @@
-package com.example.xin.dormitory;
+package com.example.xin.dormitory.Student;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,11 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 
+import com.example.xin.dormitory.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class dormitoryActivity extends AppCompatActivity {
+public class DormitoryActivity extends AppCompatActivity {
 
     private List<Talk> talkList=new ArrayList<>();
 

@@ -1,9 +1,11 @@
-package com.example.xin.dormitory;
+package com.example.xin.dormitory.Student;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+
+import com.example.xin.dormitory.R;
 
 public class MyDormitory extends AppCompatActivity {
 
