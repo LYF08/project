@@ -22,16 +22,35 @@
         android:background="@drawable/ic_1" />
     <!--注意不能用alignParentBotton-->
 
+    <TextView
+        android:id="@+id/tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="320dp"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:text="昵称:" />
+
     <EditText
         android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/tv_nickname"
         android:layout_marginTop="320dp"
-        android:ems="12"
+        android:ems="10"
         android:inputType="textPersonName"
         android:hint="昵称" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@id/phone"
+        android:layout_below="@id/tv_nickname"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:text="联系方式:" />
 
     <EditText
         android:id="@+id/phone"
@@ -40,7 +59,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/nickname"
         android:layout_alignLeft="@id/nickname"
-        android:ems="12"
+        android:ems="10"
         android:inputType="textPersonName"
         android:hint="联系方式"/>
 

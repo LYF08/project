@@ -101,6 +101,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(LoginActivity.this,"连接失败",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
