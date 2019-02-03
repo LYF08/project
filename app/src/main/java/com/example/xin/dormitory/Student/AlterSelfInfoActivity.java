@@ -66,9 +66,8 @@ public class AlterSelfInfoActivity extends AppCompatActivity {
                     setResult(RESULT_OK,intent);
 
                     //更新数据库中用户的nickname和phone
-                    //此处有bug，数据库未更新，原因未知
                     OkHttpClient client = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder().add("phone",phone).add("nickname",nickname).build();
+                    RequestBody requestBody = new FormBody.Builder().add("ID",HttpUtil.ID).add("phone",phone).add("nickname",nickname).build();
                     //服务器地址，ip地址需要时常更换
                     String address=HttpUtil.address+"alter.php";
                     Request request = new Request.Builder().url(address).post(requestBody).build();

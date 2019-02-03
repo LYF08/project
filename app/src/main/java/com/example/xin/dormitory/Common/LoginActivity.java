@@ -10,8 +10,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.xin.dormitory.Houseparent.LoginHActivity;
 import com.example.xin.dormitory.R;
 import com.example.xin.dormitory.Student.LoginSActivity;
 import com.example.xin.dormitory.Utility.HttpUtil;
@@ -22,6 +25,8 @@ import okhttp3.*;
 public class LoginActivity extends AppCompatActivity {
 
     private CheckBox cb1;
+    private RadioButton houseparent;
+    private RadioButton student;
     private EditText et_account,et_pwd;
     private Button bt_register,bt_login;
 
@@ -33,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         et_account = findViewById(R.id.et_account);
         et_pwd = findViewById(R.id.et_pwd);
         cb1 = findViewById(R.id.cb_1);
+        houseparent = findViewById(R.id.houseparent);
+        student = findViewById(R.id.student);
         bt_register = findViewById(R.id.bt_register);
         bt_login = findViewById(R.id.bt_login);
         cb1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -123,7 +130,11 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
                         }
                     });
-                    Intent intent = new Intent(LoginActivity.this, LoginSActivity.class);
+                    Intent intent = null;
+                    if(student.isChecked()) {
+                        intent = new Intent(LoginActivity.this, LoginSActivity.class);
+                    }else if(houseparent.isChecked())
+                        intent = new Intent(LoginActivity.this, LoginHActivity.class);
                     startActivity(intent);
                 }else{
                     runOnUiThread(new Runnable() {

@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp">
+    android:padding="15dp"
+    android:background="@drawable/timg">
 
     <TextView
         android:id="@+id/tv_title"
@@ -154,14 +155,14 @@
 
     <Button
         android:id="@+id/bt_confirm"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="确认注册"
         android:gravity="center"
         android:layout_below="@id/et_nickname"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="125dp"
-        android:layout_marginLeft="125dp"
-        android:textColor="#000"/>
+        android:layout_centerHorizontal="true"
+        android:textColor="#000"
+        android:background="#90EE90"/>
 
 </RelativeLayout>
