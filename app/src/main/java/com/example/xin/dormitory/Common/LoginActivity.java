@@ -45,12 +45,10 @@ public class LoginActivity extends AppCompatActivity {
         cb1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(cb1.isChecked())
-                {
+                if(cb1.isChecked()) {
                     et_pwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                 }
-                else
-                {
+                else {
                     et_pwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 }
             }
@@ -133,8 +131,9 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = null;
                     if(student.isChecked()) {
                         intent = new Intent(LoginActivity.this, LoginSActivity.class);
-                    }else if(houseparent.isChecked())
+                    }else if(houseparent.isChecked()) {
                         intent = new Intent(LoginActivity.this, LoginHActivity.class);
+                    }
                     startActivity(intent);
                 }else{
                     runOnUiThread(new Runnable() {

@@ -17,56 +17,62 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/icon_image"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        android:src="@drawable/ic_1" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/icon_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:src="@drawable/ic_1" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
-        android:layout_marginLeft="46dp"
-        android:background="@drawable/button_main"
-        android:text="宿舍天地"
-        android:textSize="20sp" />
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="100dp"
+            android:layout_marginLeft="46dp"
+            android:background="@drawable/button_main"
+            android:text="宿舍天地"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginHorizontal="134dp"
-        android:layout_marginLeft="134dp"
-        android:layout_marginTop="270dp"
-        android:text="欢迎你，Mike"
-        android:textSize="15sp"
-        android:textColor="#4A4A4A"/>
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@id/icon_image"
+            android:layout_marginTop="270dp"
+            android:text="欢迎你,"
+            android:textSize="18sp"
+            android:textColor="#4A4A4A"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="100dp"
-        android:layout_marginRight="46dp"
-        android:background="@drawable/button_main"
-        android:text="宿舍事务"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/username"
+            android:layout_marginTop="270dp"
+            android:text="无"
+            android:textSize="18sp"
+            android:textColor="#4A4A4A"/>
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="100dp"
+            android:layout_marginRight="46dp"
+            android:background="@drawable/button_main"
+            android:text="宿舍事务"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

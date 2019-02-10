@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.xin.dormitory.R;
@@ -37,6 +38,7 @@ public class LoginSActivity extends AppCompatActivity {
 
     private DrawerLayout mSDrawlayout;
     private NavigationView navView;
+    private TextView tv_username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class LoginSActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         mSDrawlayout = findViewById(R.id.drawer_layout);
         navView = findViewById(R.id.nav_view);
+        tv_username = findViewById(R.id.tv_username);
 
         //把信息存到sharedpreferences里
         OkHttpClient client = new OkHttpClient();
@@ -88,6 +91,8 @@ public class LoginSActivity extends AppCompatActivity {
         });
 
         ActionBar actionBar = getSupportActionBar();
+        SharedPreferences pref = getSharedPreferences("data",MODE_PRIVATE);
+        tv_username.setText(pref.getString("nickname",""));
 
         Button dormbutton= findViewById(R.id.button1);
         Button setbutton= findViewById(R.id.button2);

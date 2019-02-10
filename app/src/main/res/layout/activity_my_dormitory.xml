@@ -13,11 +13,11 @@
         />
 
     <Button
-        android:id="@+id/check_ele"
+        android:id="@+id/bt_ele"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/dorm_num2"
+        android:layout_above="@id/repair"
+        android:layout_toRightOf="@id/repair"
         android:background="@drawable/button_main"
         android:text="电费查询"
         android:textSize="20dp" />
@@ -26,7 +26,6 @@
         android:id="@+id/repair"
         android:layout_width="100dp"
         android:layout_height="100dp"
-
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="133dp"
@@ -35,33 +34,32 @@
         android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/dorm_num"
-        android:layout_width="143dp"
-        android:layout_height="50dp"
-        android:layout_alignBottom="@+id/dorm_num2"
-        android:layout_toLeftOf="@+id/dorm_num2"
+        android:id="@+id/dorm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_dorm"
+        android:layout_alignRight="@id/bt_water"
         android:text="宿舍号:"
         android:textSize="35dp"
         android:textColor="#4A4A4A"/>
 
     <TextView
-        android:id="@+id/dorm_num2"
+        android:id="@+id/tv_dorm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/dorm"
         android:layout_marginTop="115dp"
-        android:text="XXX"
-        android:textSize="30dp"
+        android:text="无"
+        android:textSize="35dp"
         android:textColor="#4A4A4A"/>
 
     <Button
-        android:id="@+id/check_water"
+        android:id="@+id/bt_water"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="50dp"
+        android:layout_above="@id/repair"
+        android:layout_toLeftOf="@id/repair"
         android:background="@drawable/button_main"
         android:text="水费查询"
         android:textSize="20dp" />
