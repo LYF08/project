@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2019-02-02 12:02:29
+-- Generation Time: 2019-02-11 10:05:47
 -- 服务器版本： 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -32,22 +32,23 @@ CREATE TABLE `userinfo` (
   `dormID` varchar(10) DEFAULT NULL,
   `phone` varchar(12) DEFAULT NULL,
   `password` varchar(11) DEFAULT NULL,
-  `nickname` varchar(10) DEFAULT NULL
+  `nickname` varchar(10) DEFAULT NULL,
+  `belong` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `userinfo`
 --
 
-INSERT INTO `userinfo` (`ID`, `name`, `dormID`, `phone`, `password`, `nickname`) VALUES
-('1', '', '', '', '', NULL),
-('10', '', '', '', '123456', NULL),
-('100', '', '', '', '', NULL),
-('10001', 'admin', 'A100', '12345678', '123456', NULL),
-('10002', 'abc', 'A000', '1234567890', '123456', NULL),
-('10003', 'abc', 'A000', '1234567890', '123456', NULL),
-('321', 'qqq', 'B000', '1236547890', '123456', 'dada'),
-('666', '正式', 'C000', '1234567890', '123456', 'OK');
+INSERT INTO `userinfo` (`ID`, `name`, `dormID`, `phone`, `password`, `nickname`, `belong`) VALUES
+('1', '', '', '', '', NULL, ''),
+('10', '', '', '', '123456', NULL, ''),
+('100', '', '', '', '', NULL, ''),
+('10001', 'admin', 'A100', '12345678', '123456', NULL, ''),
+('10002', 'abc', 'A000', '1234567890', '123456', NULL, ''),
+('10003', 'abc', 'A000', '1234567890', '123456', NULL, ''),
+('321', 'qqq', 'B000', '1236547890', '123456', 'dada', ''),
+('666', '正式', 'C000', '1472583690', '123456', 'ok', '');
 
 --
 -- Indexes for dumped tables

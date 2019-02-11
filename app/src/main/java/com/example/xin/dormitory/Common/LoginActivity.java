@@ -11,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.xin.dormitory.Houseparent.LoginHActivity;
@@ -101,7 +100,12 @@ public class LoginActivity extends AppCompatActivity {
         OkHttpClient client = new OkHttpClient();
         RequestBody requestBody = new FormBody.Builder().add("ID",ID).add("password",pwd).build();
         //服务器地址，ip地址需要时常更换
-        String address=HttpUtil.address+"login.php";
+        String address = null;
+        if(student.isChecked()) {
+            address = HttpUtil.address+"loginS.php";
+        }else if(houseparent.isChecked()) {
+            address = HttpUtil.address+"loginH.php";
+        }
         Request request = new Request.Builder().url(address).post(requestBody).build();
         //匿名内部类实现回调接口
         client.newCall(request).enqueue(new okhttp3.Callback(){

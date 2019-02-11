@@ -83,6 +83,7 @@ public class LoginSActivity extends AppCompatActivity {
                     editor.putString("dormID",jsonObject.getString("dormID"));
                     editor.putString("phone",jsonObject.getString("phone"));
                     editor.putString("nickname",jsonObject.getString("nickname"));
+                    editor.putString("belong",jsonObject.getString("belong"));
                     editor.apply();
                 } catch (JSONException e) {
                     e.printStackTrace();
