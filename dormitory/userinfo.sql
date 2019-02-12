@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2019-02-11 10:05:47
+-- Generation Time: 2019-02-12 09:34:49
 -- 服务器版本： 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `userinfo` (
   `ID` varchar(12) NOT NULL,
-  `name` varchar(10) DEFAULT NULL,
-  `dormID` varchar(10) DEFAULT NULL,
+  `name` varchar(10) NOT NULL,
+  `dormID` varchar(10) NOT NULL,
   `phone` varchar(12) DEFAULT NULL,
-  `password` varchar(11) DEFAULT NULL,
+  `password` varchar(11) NOT NULL,
   `nickname` varchar(10) DEFAULT NULL,
   `belong` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

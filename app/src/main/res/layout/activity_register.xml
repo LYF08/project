@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
-        android:hint="姓  名"
+        android:hint="姓  名(必 填)"
         android:gravity="center"
         android:layout_below="@id/tv_title"
         android:layout_marginTop="15dp"/>
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
-        android:hint="宿舍号"
+        android:hint="宿舍号(必 填)"
         android:gravity="center"
         android:layout_below="@id/et_name"
         android:layout_marginTop="10dp" />
@@ -72,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
-        android:hint="学  号"
+        android:hint="学  号(必 填)"
         android:gravity="center"
         android:layout_below="@id/et_dorm"
         android:layout_marginTop="10dp"/>
@@ -82,7 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
-        android:hint="6-10位密码"
+        android:hint="6-10位密码(必 填)"
         android:gravity="center"
         android:layout_below="@id/et_ID"
         android:layout_marginTop="10dp"
@@ -94,20 +94,13 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
-        android:hint="再次确认密码"
+        android:hint="再次确认密码(必 填)"
         android:gravity="center"
         android:layout_below="@id/et_pwd"
         android:layout_marginTop="10dp"
         android:maxLength="10"
         android:inputType="textPassword"/>
 
-    <TextView
-        android:id="@+id/rtv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="#f50606"
-        android:layout_below="@id/et_confirm"/>
 
     <EditText
         android:id="@+id/et_phone"
@@ -116,7 +109,7 @@
         android:background="@drawable/bg_register"
         android:hint="手机号"
         android:gravity="center"
-        android:layout_below="@id/rtv"
+        android:layout_below="@id/et_confirm"
         android:layout_marginTop="10dp"
         android:inputType="number"/>
 
@@ -158,7 +151,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_register"
-        android:hint="所属宿舍楼"
+        android:hint="所属宿舍楼(必 填)"
         android:gravity="center"
         android:layout_below="@id/et_nickname"
         android:layout_marginTop="10dp" />

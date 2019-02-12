@@ -7,7 +7,6 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.xin.dormitory.R;
@@ -35,8 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText et_phone;
     private EditText et_nickname;
     private EditText et_belong;
-    private TextView rtv;
-    private View v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         et_phone = findViewById(R.id.et_phone);
         et_nickname = findViewById(R.id.et_nickname);
         et_belong = findViewById(R.id.et_belong);
-        rtv = findViewById(R.id.rtv);
+        //rtv = findViewById(R.id.rtv);
         /*
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -72,10 +69,45 @@ public class RegisterActivity extends AppCompatActivity {
         });
     */
 
-        rtv.setText("密码不能为空");
-        bt_confirm.setEnabled(false);
+        CheckNotNull("姓名", et_name);
+        CheckNotNull("宿舍号",et_dorm);
+        CheckNotNull("学号", et_ID);
+        CheckNotNull("所属宿舍楼", et_belong);
 
-        et_confirm.addTextChangedListener(new TextWatcher() {
+        et_pwd.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus) {
+                    String pwd = et_pwd.getText().toString();
+                    if (pwd.length() < 6 || pwd.length() > 10) {
+                        Toast.makeText(MyApplication.getContext(), "密码长度应该为6-10个字符", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        et_confirm.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    String pwd = et_pwd.getText().toString();
+                    String confirm = et_confirm.getText().toString();
+                    if(!confirm.equals(pwd)){
+                        Toast.makeText(MyApplication.getContext(), "两次密码不一致，请重新输入", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        setListeners();
+
+    }
+
+    /**
+     * 检测对应编辑框内容是否为空
+     * @param str 提示时对应编辑框的名字
+     * @param et 对应编辑框
+     */
+    private void CheckNotNull(final String str, final EditText et){
+        et.addTextChangedListener(new TextWatcher() {
             private CharSequence temp;
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -89,27 +121,21 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                String str1;
-                String str2;
-                str1 = et_pwd.getText().toString();
-                str2 = et_confirm.getText().toString();
-                if(str1.length()==0){
-                    rtv.setText("密码不能为空");
-                    bt_confirm.setEnabled(false);
-                } else if(str1.length()<6||str1.length()>10){
-                    rtv.setText("密码长度应该为6-10个字符");
-                    bt_confirm.setEnabled(false);
-                }else if(str1.equals(str2)){
-                    rtv.setText("");
-                    bt_confirm.setEnabled(true);
-                }else{
-                    rtv.setText("两次输入的密码不一致，请重新输入");
-                    bt_confirm.setEnabled(false);
+                if((et.getText().toString()).equals("")){
+                    Toast.makeText(MyApplication.getContext(),str + "不能为空",Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        setListeners();
-
+        et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    if((et.getText().toString()).equals("")){
+                        Toast.makeText(MyApplication.getContext(),str + "不能为空",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
 
 
@@ -133,47 +159,54 @@ public class RegisterActivity extends AppCompatActivity {
                     String dorm = et_dorm.getText().toString();
                     String nickname = et_nickname.getText().toString();
                     String belong = et_belong.getText().toString();
-
-                    OkHttpClient client = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder().add("ID",ID).add("password",pwd).add("dormID",dorm)
-                            .add("phone",phone).add("name",name).add("nickname",nickname).add("belong",belong).build();
-                    //服务器地址，ip地址需要时常更换
-                    String address=HttpUtil.address+"register.php";
-                    Request request = new Request.Builder().url(address).post(requestBody).build();
-                    //匿名内部类实现回调接口
-                    client.newCall(request).enqueue(new okhttp3.Callback(){
-                        @Override
-                        public void onFailure(Call call, IOException e) {
-                            e.printStackTrace();
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(MyApplication.getContext(),"连接失败",Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
-                        @Override
-                        public void onResponse(Call call, Response response) throws IOException {
-                            String responseData = response.body().string();
-                            //子线程中操作Toast会出现问题，所以用runOnUiThread
-                            if(HttpUtil.parseJSONDataForUserinfo(responseData)){
+                    String confirm = et_confirm.getText().toString();
+                    if(ID.equals("")||pwd.equals("")||name.equals("")||dorm.equals("")||belong.equals("")||confirm.equals("")) {
+                        Toast.makeText(MyApplication.getContext(), "注册失败", Toast.LENGTH_SHORT).show();
+                    }else if(pwd.equals(confirm)){
+                        OkHttpClient client = new OkHttpClient();
+                        RequestBody requestBody = new FormBody.Builder().add("ID", ID).add("password", pwd).add("dormID", dorm)
+                                .add("phone", phone).add("name", name).add("nickname", nickname).add("belong", belong).build();
+                        //服务器地址，ip地址需要时常更换
+                        String address = HttpUtil.address + "register.php";
+                        Request request = new Request.Builder().url(address).post(requestBody).build();
+                        //匿名内部类实现回调接口
+                        client.newCall(request).enqueue(new okhttp3.Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                e.printStackTrace();
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(MyApplication.getContext(),"注册成功",Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                                finish();
-                            }else{
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Toast.makeText(MyApplication.getContext(),"注册失败",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MyApplication.getContext(), "连接失败", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
-                        }
-                    });
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                String responseData = response.body().string();
+                                //子线程中操作Toast会出现问题，所以用runOnUiThread
+                                if (HttpUtil.parseJSONDataForUserinfo(responseData)) {
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(MyApplication.getContext(), "注册成功", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    finish();
+                                } else {
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(MyApplication.getContext(), "注册失败", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    }else{
+                        Toast.makeText(MyApplication.getContext(), "注册失败", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 default:
                     break;
