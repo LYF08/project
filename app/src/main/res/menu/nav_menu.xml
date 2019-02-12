@@ -5,10 +5,10 @@
             android:id="@+id/nav_info"
             android:icon="@drawable/ic_self"
             android:title="个人信息" />
-        <item
-            android:id="@+id/nav_friends"
-            android:icon="@drawable/ic_friends"
-            android:title="朋友" />
+        <!--<item-->
+            <!--android:id="@+id/nav_friends"-->
+            <!--android:icon="@drawable/ic_friends"-->
+            <!--android:title="朋友" />-->
         <item
             android:id="@+id/nav_dormitory"
             android:icon="@drawable/ic_room"

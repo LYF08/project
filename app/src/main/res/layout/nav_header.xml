@@ -10,20 +10,4 @@
         android:layout_height="70dp"
         android:layout_centerInParent="true"
         android:src="@drawable/ic_1" />
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="ID : 20172005200"
-        android:textColor="#FFF"
-        android:textSize="14sp" />
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/username"
-        android:text="Phone : 13212345678"
-        android:textColor="#FFF"
-        android:textSize="14sp" />
 </RelativeLayout>
