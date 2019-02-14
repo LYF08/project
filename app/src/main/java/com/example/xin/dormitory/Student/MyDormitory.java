@@ -16,6 +16,7 @@ public class MyDormitory extends AppCompatActivity {
 
     private Button bt_water;
     private Button bt_ele;
+    private Button repair;
     private TextView tv_dorm;
 
     @Override
@@ -26,6 +27,7 @@ public class MyDormitory extends AppCompatActivity {
         setSupportActionBar(toolbar);
         bt_ele = findViewById(R.id.bt_ele);
         bt_water = findViewById(R.id.bt_water);
+        repair = findViewById(R.id.repair);
         tv_dorm = findViewById(R.id.tv_dorm);
         SharedPreferences pref = getSharedPreferences("data",MODE_PRIVATE);
         tv_dorm.setText(pref.getString("dormID",""));
@@ -38,6 +40,7 @@ public class MyDormitory extends AppCompatActivity {
         OnClick onClick = new OnClick();
         bt_ele.setOnClickListener(onClick);
         bt_water.setOnClickListener(onClick);
+        repair.setOnClickListener(onClick);
     }
 
 
@@ -50,6 +53,9 @@ public class MyDormitory extends AppCompatActivity {
                 case R.id.bt_ele:
                 case R.id.bt_water:
                     intent = new Intent(MyDormitory.this,CheckEleAndWaterActivity.class);
+                    break;
+                case R.id.repair:
+                    intent = new Intent(MyDormitory.this, RepairApplicationActivity.class);
                     break;
                 default:
                     break;

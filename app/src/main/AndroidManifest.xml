@@ -36,8 +36,22 @@
         <activity
             android:name=".Student.AlterSelfInfoActivity"
             android:label="修改信息" />
-        <activity android:name=".Student.DormitoryAffairsActivity" />
-        <activity android:name=".Student.CheckEleAndWaterActivity"></activity>
+        <activity
+            android:name=".Student.DormitoryAffairsActivity"
+            android:parentActivityName=".Student.LoginSActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Student.LoginSActivity"/>
+        </activity>
+        <activity android:name=".Student.CheckEleAndWaterActivity" />
+        <activity
+            android:name=".Student.RepairApplicationActivity"
+            android:parentActivityName=".Student.MyDormitory"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Student.MyDormitory"/>
+        </activity>
     </application>
 
 </manifest>
