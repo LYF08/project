@@ -25,12 +25,14 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class RepairApplicationActivity extends AppCompatActivity {
+
     private Button repair_apply_commit;
     private EditText et_RepairName;
     private EditText et_DamageCause;
     private EditText et_Details;
     private EditText et_Contact;
     private EditText et_OtherRemarks;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +50,13 @@ public class RepairApplicationActivity extends AppCompatActivity {
         setListeners();
     }
 
+
     private void setListeners() {
         OnClick onClick = new OnClick();
         repair_apply_commit.setOnClickListener(onClick);
     }
+
+
     private class OnClick implements View.OnClickListener{
         @Override
         public void onClick(View v){
@@ -93,7 +98,7 @@ public class RepairApplicationActivity extends AppCompatActivity {
                             public void onResponse(Call call, Response response) throws IOException {
                                 String responseData = response.body().string();
                                 //子线程中操作Toast会出现问题，所以用runOnUiThread
-                                if (HttpUtil.parseJSONDataForUserinfo(responseData)) {
+                                if (HttpUtil.parseSimpleJSONData(responseData)) {
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {

@@ -8,7 +8,7 @@
     $Contact=$_POST['Contact'];//APP post过来的联系方式(手机号)
     $OtherRemarks=$_POST['OtherRemarks'];//APP post过来的其他备注
     $belong=$_POST['belong'];//APP post过来的宿舍楼
-    $result=mysqli_query($conn,"INSERT INTO repairinfo(ApplyDate,dormID,RepairName,DamageCause,Details,Contact,OtherRemarks,belong,Status) VALUES('$ApplyDate','$dormID','$RepairName','$DamageCause','$Details','$Contact','$OtherRemarks','$belong','0')");
+    $result=mysqli_query($conn,"INSERT INTO repairinfo(ApplyDate,dormID,RepairName,DamageCause,Details,Contact,OtherRemarks,belong,Status) VALUES('$ApplyDate','$dormID','$RepairName','$DamageCause','$Details','$Contact','$OtherRemarks','$belong',0)");
      if($result){
        $back['status']="5";
        $back['info']="commit success";

@@ -186,7 +186,7 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onResponse(Call call, Response response) throws IOException {
                                 String responseData = response.body().string();
                                 //子线程中操作Toast会出现问题，所以用runOnUiThread
-                                if (HttpUtil.parseJSONDataForUserinfo(responseData)) {
+                                if (HttpUtil.parseSimpleJSONData(responseData)) {
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {

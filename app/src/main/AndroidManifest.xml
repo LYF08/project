@@ -20,12 +20,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".Common.RegisterActivity" />
-        <activity android:name=".Houseparent.LoginHActivity" />
+        <activity
+            android:name=".Houseparent.LoginHActivity"
+            android:label="宿舍管理" />
         <activity
             android:name=".Student.LoginSActivity"
             android:label="宿舍管理" />
         <activity
-            android:name=".Student.dormitoryActivity"
+            android:name=".Student.DormitoryActivity"
             android:label="宿舍天地" />
         <activity
             android:name=".Student.MyDormitory"
@@ -41,7 +43,7 @@
             android:parentActivityName=".Student.LoginSActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Student.LoginSActivity"/>
+                android:value=".Student.LoginSActivity" />
         </activity>
         <activity android:name=".Student.CheckEleAndWaterActivity" />
         <activity
@@ -50,7 +52,20 @@
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Student.MyDormitory"/>
+                android:value=".Student.MyDormitory" />
+        </activity>
+        <activity
+            android:name=".Houseparent.ManagerRepairActivity"
+            android:label="管理维修" />
+        <activity
+            android:name=".Houseparent.ManagerAnnouncementActivity"
+            android:label="公告管理"/>
+        <activity
+            android:name=".Houseparent.CheckStayAndLeftActivity"
+            android:label="离宿/留宿情况"/>
+        <activity
+            android:name=".Houseparent.ManagerSignUpActivity"
+            android:label="签到相关">
         </activity>
     </application>
 

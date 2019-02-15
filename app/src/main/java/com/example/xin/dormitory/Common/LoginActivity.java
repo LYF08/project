@@ -95,7 +95,11 @@ public class LoginActivity extends AppCompatActivity {
      */
     private void loginHelp(){
         String ID = et_account.getText().toString();
-        HttpUtil.ID = ID;
+        if(student.isChecked()) {
+            HttpUtil.ID = ID;
+        }else if(houseparent.isChecked()) {
+            HttpUtil.HID = ID;
+        }
         String pwd = et_pwd.getText().toString();
         OkHttpClient client = new OkHttpClient();
         RequestBody requestBody = new FormBody.Builder().add("ID",ID).add("password",pwd).build();
@@ -124,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String responseData = response.body().string();
-                if(HttpUtil.parseJSONDataForUserinfo(responseData)){
+                if(HttpUtil.parseSimpleJSONData(responseData)){
                     //子线程中操作Toast会出现问题，所以用runOnUiThread
                     runOnUiThread(new Runnable() {
                         @Override

@@ -8,15 +8,16 @@ import okhttp3.*;
 
 public class HttpUtil {
     //服务器地址，ip地址需要时常更换
-    public static final String address="http://192.168.88.102:8080/dormitoryPHP/";
-    //由于Okhttp3的封装，难以获得php返回的数据，故记录用户ID，方便之后获取用户信息的操作
+    public static final String address="http://192.168.88.100:8080/dormitoryPHP/";
+    //由于Okhttp3的封装，难以获得php返回的数据，故记录学生ID以及宿管HID，方便之后获取信息的操作,其中学生信息的sharedpreferences文件名为data，宿管为dataH
     public static String ID = null;
+    public static String HID = null;
     /**
      * 根据服务器返回的JSON数据判断用户是否存在
      * @param JSONData 返回的JSON数据
      * @return true OR false 表示解析是否成功
      */
-    public static boolean parseJSONDataForUserinfo(String JSONData){
+    public static boolean parseSimpleJSONData(String JSONData){
         try {
             JSONObject jsonObject = new JSONObject(JSONData);
             /**

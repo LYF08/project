@@ -25,6 +25,7 @@ public class MyDormitory extends AppCompatActivity {
         setContentView(R.layout.activity_my_dormitory);
         Toolbar toolbar =findViewById(R.id.toolbar_dorm2);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         bt_ele = findViewById(R.id.bt_ele);
         bt_water = findViewById(R.id.bt_water);
         repair = findViewById(R.id.repair);

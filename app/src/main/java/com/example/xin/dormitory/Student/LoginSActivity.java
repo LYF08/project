@@ -55,7 +55,7 @@ public class LoginSActivity extends AppCompatActivity {
         OkHttpClient client = new OkHttpClient();
         RequestBody requestBody = new FormBody.Builder().add("ID",HttpUtil.ID).build();
         //服务器地址，ip地址需要时常更换
-        String address=HttpUtil.address+"info.php";
+        String address=HttpUtil.address+"infoS.php";
         Request request = new Request.Builder().url(address).post(requestBody).build();
         //匿名内部类实现回调接口
         client.newCall(request).enqueue(new okhttp3.Callback(){
@@ -66,7 +66,7 @@ public class LoginSActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MyApplication.getContext(),"服务器连接失败",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MyApplication.getContext(),"服务器连接失败，无法获取您的信息",Toast.LENGTH_SHORT).show();
                     }
                 });
             }
