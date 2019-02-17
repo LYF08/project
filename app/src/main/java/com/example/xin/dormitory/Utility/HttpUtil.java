@@ -27,6 +27,10 @@ public class HttpUtil {
              * 3代表学生信息修改成功
              * 4代表宿管用户名密码匹配
              * 5代表维修申请提交成功
+             * 6代表维修申请状态修改成功
+             * 7代表公告发布成功
+             * 8代表签到发起成功
+             * 9代表签到成功
              * -1代表学生不存在
              * -2代表学生密码错误
              * -3代表学生已注册过
@@ -35,6 +39,10 @@ public class HttpUtil {
              * -6代表宿管密码错误
              * -7代表宿管不存在
              * -8代表维修申请提交失败
+             * -9代表维修申请状态修改失败
+             * -10代表公告发布失败
+             * -11代表签到发起失败
+             * -12代表签到失败
              */
             String status = jsonObject.getString("status");
             switch (status){
@@ -43,6 +51,10 @@ public class HttpUtil {
                 case"3": return true;
                 case"4": return true;
                 case"5": return true;
+                case"6": return true;
+                case"7": return true;
+                case"8": return true;
+                case"9": return true;
                 default: return false;
             }
         } catch (JSONException e) {

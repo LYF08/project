@@ -17,7 +17,7 @@
         android:id="@+id/et_account"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="学号"
+        android:hint="帐号"
         android:background="@drawable/bg_login"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"

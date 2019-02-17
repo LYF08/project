@@ -29,7 +29,7 @@
         android:layout_marginLeft="80dp"
         android:layout_marginTop="320dp"
         android:gravity="center"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:text="昵称:" />
 
     <EditText
@@ -50,7 +50,7 @@
         android:layout_toLeftOf="@id/phone"
         android:layout_below="@id/tv_nickname"
         android:gravity="center"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:text="联系方式:" />
 
     <EditText
@@ -61,7 +61,7 @@
         android:layout_below="@id/nickname"
         android:layout_alignLeft="@id/nickname"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         android:gravity="center"
         android:hint="联系方式"/>
 

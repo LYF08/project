@@ -59,13 +59,28 @@
             android:label="管理维修" />
         <activity
             android:name=".Houseparent.ManagerAnnouncementActivity"
-            android:label="公告管理"/>
+            android:label="公告管理" />
         <activity
             android:name=".Houseparent.CheckStayAndLeftActivity"
-            android:label="离宿/留宿情况"/>
+            android:label="离宿/留宿情况" />
         <activity
             android:name=".Houseparent.ManagerSignUpActivity"
-            android:label="签到相关">
+            android:label="签到相关" />
+        <activity
+            android:name=".Houseparent.UnhandledRepairActivity"
+            android:label="未处理申请" />
+        <activity
+            android:name=".Houseparent.HandledRepairActivity"
+            android:label="已处理申请" />
+        <activity
+            android:name=".Houseparent.RepairDetailsActivity"
+            android:label="申请详情" />
+        <activity
+            android:name=".Houseparent.CreateAnnouncementActivity"
+            android:label="发布新公告"/>
+        <activity
+            android:name=".Houseparent.CheckAnouncementActivity"
+            android:label="已发布公告">
         </activity>
     </application>
 

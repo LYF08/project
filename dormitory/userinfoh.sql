@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2019-02-12 09:35:42
+-- Generation Time: 2019-02-17 15:22:05
 -- 服务器版本： 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -39,7 +39,9 @@ CREATE TABLE `userinfoh` (
 --
 
 INSERT INTO `userinfoh` (`ID`, `name`, `govern`, `phone`, `password`) VALUES
-('10000', 'Admin', 'A', '123456', '123456');
+('1', 'Fast', 'A', '111111111', ''),
+('10000', 'Admin', 'A', '123456', '123456'),
+('12', 'DDD', '', '12313213', '');
 
 --
 -- Indexes for dumped tables

@@ -42,10 +42,10 @@ public class ManagerAnnouncementActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()) {
                 case R.id.bt_oldAnnouncement:
-             //       intent = new Intent(ManagerAnnouncementActivity.this,CheckStayAndLeftActivity.class);
+                    intent = new Intent(ManagerAnnouncementActivity.this,CheckAnouncementActivity.class);
                     break;
                 case R.id.bt_newAnnouncement:
-             //       intent = new Intent(ManagerAnnouncementActivity.this,ManagerAnnouncementActivity.class);
+                    intent = new Intent(ManagerAnnouncementActivity.this,CreateAnnouncementActivity.class);
                     break;
             }
             startActivity(intent);

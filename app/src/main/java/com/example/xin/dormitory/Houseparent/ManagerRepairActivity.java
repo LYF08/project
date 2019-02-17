@@ -41,10 +41,10 @@ public class ManagerRepairActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()) {
                 case R.id.bt_handleApplication:
-                    //       intent = new Intent(ManagerAnnouncementActivity.this,CheckStayAndLeftActivity.class);
+                           intent = new Intent(ManagerRepairActivity.this,HandledRepairActivity.class);
                     break;
                 case R.id.bt_unhandleApplication:
-                    //       intent = new Intent(ManagerAnnouncementActivity.this,ManagerAnnouncementActivity.class);
+                           intent = new Intent(ManagerRepairActivity.this,UnhandledRepairActivity.class);
                     break;
             }
             startActivity(intent);
