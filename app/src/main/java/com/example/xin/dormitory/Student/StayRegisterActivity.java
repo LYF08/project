@@ -62,7 +62,8 @@ public class StayRegisterActivity extends AppCompatActivity {
         stay_register.setOnClickListener(onClick);
     }
     private class OnClick implements View.OnClickListener{
-
+        Date d_startDate;
+        Date d_endDate;
         @Override
         public void onClick(View v){
             switch(v.getId()){
@@ -82,7 +83,8 @@ public class StayRegisterActivity extends AppCompatActivity {
                                     int month = datePickerDialog1.getDatePicker().getMonth();
                                     int dayOfMonth= datePickerDialog1.getDatePicker().getDayOfMonth();
                                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-                                    String startDate = formatter.format(new Date(year,month,dayOfMonth,hourOfDay,minute));
+                                    d_startDate = new Date(year,month,dayOfMonth,hourOfDay,minute);
+                                    String startDate = formatter.format(d_startDate);
                                     tv_startDate.setText(startDate);
                                 }
                             }, Calendar.getInstance().get(Calendar.HOUR_OF_DAY),Calendar.getInstance().get(Calendar.MINUTE),true).show();
@@ -106,7 +108,8 @@ public class StayRegisterActivity extends AppCompatActivity {
                                     int month = datePickerDialog2.getDatePicker().getMonth();
                                     int dayOfMonth= datePickerDialog2.getDatePicker().getDayOfMonth();
                                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-                                    String endDate= formatter.format(new Date(year,month,dayOfMonth,hourOfDay,minute));
+                                    d_endDate = new Date(year,month,dayOfMonth,hourOfDay,minute);
+                                    String endDate= formatter.format(d_endDate);
                                     tv_endDate.setText(endDate);
                                 }
                             }, Calendar.getInstance().get(Calendar.HOUR_OF_DAY),Calendar.getInstance().get(Calendar.MINUTE),true).show();
@@ -128,6 +131,8 @@ public class StayRegisterActivity extends AppCompatActivity {
 
                     if(startDate.equals("")||endDate.equals("")||contact.equals("")){
                         Toast.makeText(MyApplication.getContext(), "所有内容都为必填", Toast.LENGTH_SHORT).show();
+                    }else if(d_startDate.after(d_endDate)){
+                        Toast.makeText(MyApplication.getContext(), "开始时间不能超过结束时间", Toast.LENGTH_SHORT).show();
                     }else{
                         RequestBody requestBody = new FormBody.Builder().add("registerDate", registerDate).add("ID",ID)
                                 .add("dormID", dormID).add("startDate", startDate).add("endDate", endDate)

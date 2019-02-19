@@ -65,7 +65,8 @@ public class DepartRegisterActivity extends AppCompatActivity {
         depart_register.setOnClickListener(onClick);
     }
     private class OnClick implements View.OnClickListener{
-
+        Date d_departTime;
+        Date d_backTime;
         @Override
         public void onClick(View v){
             switch(v.getId()){
@@ -85,7 +86,8 @@ public class DepartRegisterActivity extends AppCompatActivity {
                                     int month = datePickerDialog1.getDatePicker().getMonth();
                                     int dayOfMonth= datePickerDialog1.getDatePicker().getDayOfMonth();
                                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-                                    String departTime = formatter.format(new Date(year,month,dayOfMonth,hourOfDay,minute));
+                                    d_departTime = new Date(year,month,dayOfMonth,hourOfDay,minute);
+                                    String departTime = formatter.format(d_departTime);
                                     tv_departTime.setText(departTime);
                                 }
                             }, Calendar.getInstance().get(Calendar.HOUR_OF_DAY),Calendar.getInstance().get(Calendar.MINUTE),true).show();
@@ -109,7 +111,8 @@ public class DepartRegisterActivity extends AppCompatActivity {
                                     int month = datePickerDialog2.getDatePicker().getMonth();
                                     int dayOfMonth= datePickerDialog2.getDatePicker().getDayOfMonth();
                                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-                                    String backTime = formatter.format(new Date(year,month,dayOfMonth,hourOfDay,minute));
+                                    d_backTime = new Date(year,month,dayOfMonth,hourOfDay,minute);
+                                    String backTime = formatter.format(d_backTime);
                                     tv_backTime.setText(backTime);
                                 }
                             }, Calendar.getInstance().get(Calendar.HOUR_OF_DAY),Calendar.getInstance().get(Calendar.MINUTE),true).show();
@@ -131,6 +134,8 @@ public class DepartRegisterActivity extends AppCompatActivity {
                     OkHttpClient client = new OkHttpClient();
                     if(departCause.equals("")||departTime.equals("")||backTime.equals("")||contact.equals("")){
                         Toast.makeText(MyApplication.getContext(), "所有内容都为必填", Toast.LENGTH_SHORT).show();
+                    }else if(d_departTime.after(d_backTime)){
+                        Toast.makeText(MyApplication.getContext(), "离宿时间不能超过回宿时间", Toast.LENGTH_SHORT).show();
                     }else{
                         RequestBody requestBody = new FormBody.Builder().add("registerDate", registerDate).add("ID",ID)
                                 .add("dormID", dormID).add("departCause", departCause).add("departTime", departTime)
