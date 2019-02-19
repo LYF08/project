@@ -82,6 +82,22 @@
             android:name=".Houseparent.CheckAnouncementActivity"
             android:label="已发布公告">
         </activity>
+        <activity
+            android:name=".Student.DepartRegisterActivity"
+            android:parentActivityName=".Student.DormitoryAffairsActivity"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Student.DormitoryAffairsActivity" />
+        </activity>
+        <activity
+            android:name=".Student.StayRegisterActivity"
+            android:parentActivityName=".Student.DormitoryAffairsActivity"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Student.DormitoryAffairsActivity" />
+        </activity>
     </application>
 
 </manifest>

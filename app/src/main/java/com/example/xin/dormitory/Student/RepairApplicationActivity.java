@@ -62,7 +62,7 @@ public class RepairApplicationActivity extends AppCompatActivity {
         public void onClick(View v){
             switch(v.getId()) {
                 case R.id.repair_apply_commit:
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm::ss");
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     String ApplyDate = formatter.format(new Date(System.currentTimeMillis()));
                     SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
                     String dormID = pref.getString("dormID", "");
