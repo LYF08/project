@@ -138,17 +138,15 @@ public class LoginSActivity extends AppCompatActivity {
     }
 
 
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.toolbar,menu);
-        return  super.onCreateOptionsMenu(menu);
-    }
+//    public boolean onCreateOptionsMenu(Menu menu){
+//        MenuInflater inflater=getMenuInflater();
+//        inflater.inflate(R.menu.toolbar,menu);
+//        return  super.onCreateOptionsMenu(menu);
+//    }
 
 
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.backup_item:
-                break;
             case android.R.id.home :
             {mSDrawlayout.openDrawer(GravityCompat.START);break;}
             default:break;

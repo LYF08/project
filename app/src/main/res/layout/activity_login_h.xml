@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout_h"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/timg2">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_h"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#007FFF"
@@ -19,7 +25,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="90dp"
-        android:src="@drawable/ic_1" />
+        android:src="@drawable/portrait_h" />
 
     <TextView
         android:id="@+id/userHname"
@@ -88,5 +94,17 @@
         android:background="@drawable/button_main2"
         android:text="离宿/留宿信息"
         android:textSize="20sp" />
+    </RelativeLayout>
 
-</RelativeLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view_h"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu_h"
+        app:headerLayout="@layout/nav_header_h"
+        >
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

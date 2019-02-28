@@ -2,9 +2,14 @@ package com.example.xin.dormitory.Houseparent;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,18 +38,27 @@ public class LoginHActivity extends AppCompatActivity {
     private Button bt_sign;
     private Button bt_announcement;
     private Button bt_infos;
+    private DrawerLayout mSDrawlayout;
+    private NavigationView navView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_h);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar_h);
         setSupportActionBar(toolbar);
         tv_userHname = findViewById(R.id.tv_userHname);
         bt_repair = findViewById(R.id.bt_repair);
         bt_sign = findViewById(R.id.bt_sign);
         bt_announcement = findViewById(R.id.bt_announcement);
         bt_infos = findViewById(R.id.bt_infos);
+        mSDrawlayout = findViewById(R.id.drawer_layout_h);
+        navView = findViewById(R.id.nav_view_h);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        }
         setListeners();
 
         //把信息存到sharedpreferences里
@@ -96,6 +110,15 @@ public class LoginHActivity extends AppCompatActivity {
         bt_announcement.setOnClickListener(onClick);
         bt_infos.setOnClickListener(onClick);
         bt_sign.setOnClickListener(onClick);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home :
+            {mSDrawlayout.openDrawer(GravityCompat.START);break;}
+            default:break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

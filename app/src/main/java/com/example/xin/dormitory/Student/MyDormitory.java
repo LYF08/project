@@ -3,6 +3,7 @@ package com.example.xin.dormitory.Student;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -32,7 +33,10 @@ public class MyDormitory extends AppCompatActivity {
         tv_dorm = findViewById(R.id.tv_dorm);
         SharedPreferences pref = getSharedPreferences("data",MODE_PRIVATE);
         tv_dorm.setText(pref.getString("dormID",""));
-
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         setListeners();
     }
 
@@ -65,11 +69,5 @@ public class MyDormitory extends AppCompatActivity {
         }
     }
 
-
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.toolbar,menu);
-        return true;
-    }
 }
 

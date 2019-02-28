@@ -26,7 +26,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="120dp"
-            android:src="@drawable/ic_1" />
+            android:src="@drawable/portrait_s" />
 
         <Button
             android:id="@+id/button1"

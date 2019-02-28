@@ -8,7 +8,7 @@ import okhttp3.*;
 
 public class HttpUtil {
     //服务器地址，ip地址需要时常更换
-    public static final String address="http://192.168.88.100:8080/dormitoryPHP/";
+    public static final String address="http://192.168.43.184:8080/dormitoryPHP/";
     //由于Okhttp3的封装，难以获得php返回的数据，故记录学生ID以及宿管HID，方便之后获取信息的操作,其中学生信息的sharedpreferences文件名为data，宿管为dataH
     public static String ID = null;
     public static String HID = null;

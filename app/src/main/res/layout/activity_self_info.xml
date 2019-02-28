@@ -19,7 +19,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="90dp"
-        android:background="@drawable/ic_1" />
+        android:background="@drawable/portrait_s" />
 
     <TextView
         android:id="@+id/name"
