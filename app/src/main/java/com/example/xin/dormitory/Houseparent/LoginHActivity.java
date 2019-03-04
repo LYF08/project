@@ -16,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.xin.dormitory.R;
+import com.example.xin.dormitory.Student.LoginSActivity;
+import com.example.xin.dormitory.Student.MyDormitory;
+import com.example.xin.dormitory.Student.SelfInfoActivity;
 import com.example.xin.dormitory.Utility.HttpUtil;
 import com.example.xin.dormitory.Utility.MyApplication;
 
@@ -110,6 +113,8 @@ public class LoginHActivity extends AppCompatActivity {
         bt_announcement.setOnClickListener(onClick);
         bt_infos.setOnClickListener(onClick);
         bt_sign.setOnClickListener(onClick);
+        NavigationItem navigationItem = new NavigationItem();
+        navView.setNavigationItemSelectedListener(navigationItem);
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
@@ -146,4 +151,21 @@ public class LoginHActivity extends AppCompatActivity {
     }
 
 
+    private class NavigationItem implements NavigationView.OnNavigationItemSelectedListener{
+
+        @Override
+        public boolean onNavigationItemSelected(MenuItem item) {
+            Intent intent = null;
+            switch(item.getItemId()){
+                case R.id.nav_info: {
+                    intent = new Intent(LoginHActivity.this, SelfInfoHActivity.class);
+                    break;
+                }
+                default:
+                    break;
+            }
+            startActivity(intent);
+            return true;
+        }
+    }
 }

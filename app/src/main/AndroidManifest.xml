@@ -32,21 +32,21 @@
         <activity
             android:name=".Student.MyDormitory"
             android:label="我的宿舍"
-            android:parentActivityName=".Student.LoginSActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:parentActivityName=".Student.LoginSActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Student.LoginSActivity" />
-        </activity>/>
+        </activity>
+        />
         <activity
             android:name=".Student.SelfInfoActivity"
             android:label="个人信息"
-            android:parentActivityName=".Student.LoginSActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:parentActivityName=".Student.LoginSActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Student.LoginSActivity" />
-        </activity>/>
+        </activity>
+        />
         <activity
             android:name=".Student.AlterSelfInfoActivity"
             android:label="修改信息"
@@ -64,9 +64,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Student.LoginSActivity" />
         </activity>
-
         <activity android:name=".Student.CheckEleAndWaterActivity" />
-
         <activity
             android:name=".Student.RepairApplicationActivity"
             android:label="维修申请"
@@ -79,17 +77,15 @@
         <activity
             android:name=".Houseparent.ManagerRepairActivity"
             android:label="管理维修"
-            android:parentActivityName=".Houseparent.LoginHActivity"
-            android:windowSoftInputMode="adjustPan">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".Houseparent.LoginHActivity" />
+            android:parentActivityName=".Houseparent.LoginHActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Houseparent.LoginHActivity" />
         </activity>
         <activity
             android:name=".Houseparent.ManagerAnnouncementActivity"
             android:label="公告管理"
-            android:parentActivityName=".Houseparent.LoginHActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:parentActivityName=".Houseparent.LoginHActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Houseparent.LoginHActivity" />
@@ -97,8 +93,7 @@
         <activity
             android:name=".Houseparent.CheckStayAndLeftActivity"
             android:label="离宿/留宿情况"
-            android:parentActivityName=".Houseparent.LoginHActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:parentActivityName=".Houseparent.LoginHActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Houseparent.LoginHActivity" />
@@ -106,8 +101,7 @@
         <activity
             android:name=".Houseparent.ManagerSignUpActivity"
             android:label="签到相关"
-            android:parentActivityName=".Houseparent.LoginHActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:parentActivityName=".Houseparent.LoginHActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Houseparent.LoginHActivity" />
@@ -115,8 +109,7 @@
         <activity
             android:name=".Houseparent.UnhandledRepairActivity"
             android:label="未处理申请"
-            android:parentActivityName=".Houseparent.ManagerRepairActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:parentActivityName=".Houseparent.ManagerRepairActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Houseparent.ManagerRepairActivity" />
@@ -124,8 +117,7 @@
         <activity
             android:name=".Houseparent.HandledRepairActivity"
             android:label="已处理申请"
-            android:parentActivityName=".Houseparent.ManagerRepairActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:parentActivityName=".Houseparent.ManagerRepairActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Houseparent.ManagerRepairActivity" />
@@ -141,11 +133,11 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Houseparent.ManagerAnnouncementActivity" />
-        </activity>/> />
+        </activity>
+        /> />
         <activity
             android:name=".Houseparent.CheckAnouncementActivity"
-            android:label="已发布公告">
-        </activity>
+            android:label="已发布公告" />
         <activity
             android:name=".Student.DepartRegisterActivity"
             android:label="离宿登记"
@@ -163,6 +155,19 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Student.DormitoryAffairsActivity" />
+        </activity>
+        <activity
+            android:name=".Houseparent.SelfInfoHActivity"
+            android:label="个人信息"
+            android:parentActivityName=".Houseparent.LoginHActivity"/>
+        <activity
+            android:name=".Houseparent.CheckStayStudentsActivity"
+            android:label="留宿信息"
+            android:parentActivityName=".Houseparent.CheckStayAndLeftActivity"/>
+        <activity
+            android:name=".Houseparent.CheckLeftStudentsActivity"
+            android:label="离宿信息"
+            android:parentActivityName=".Houseparent.CheckStayAndLeftActivity">
         </activity>
     </application>
 

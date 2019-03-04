@@ -47,6 +47,8 @@ public class ManagerAnnouncementActivity extends AppCompatActivity {
                 case R.id.bt_newAnnouncement:
                     intent = new Intent(ManagerAnnouncementActivity.this,CreateAnnouncementActivity.class);
                     break;
+                default:
+                    break;
             }
             startActivity(intent);
         }

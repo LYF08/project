@@ -8,7 +8,7 @@ import okhttp3.*;
 
 public class HttpUtil {
     //服务器地址，ip地址需要时常更换
-    public static final String address="http://192.168.43.184:8080/dormitoryPHP/";
+    public static final String address="http://192.168.43.155:8080/dormitoryPHP/";
     //由于Okhttp3的封装，难以获得php返回的数据，故记录学生ID以及宿管HID，方便之后获取信息的操作,其中学生信息的sharedpreferences文件名为data，宿管为dataH
     public static String ID = null;
     public static String HID = null;
@@ -31,8 +31,9 @@ public class HttpUtil {
              * 7代表公告发布成功
              * 8代表签到发起成功
              * 9代表签到成功
-             * 10代表离宿登记提交成功、
+             * 10代表离宿登记提交成功
              * 11代表留宿登记提交成功
+             * 12代表宿管联系方式修改成功
              * -1代表学生不存在
              * -2代表学生密码错误
              * -3代表学生已注册过
@@ -47,6 +48,7 @@ public class HttpUtil {
              * -12代表签到失败
              * -13代表离宿登记提交失败
              * -14代表留宿登记提交失败
+             * -15代表宿管联系方式修改失败
              */
             String status = jsonObject.getString("status");
             switch (status){
@@ -61,6 +63,7 @@ public class HttpUtil {
                 case"9": return true;
                 case"10":return true;
                 case"11":return true;
+                case"12":return true;
                 default: return false;
             }
         } catch (JSONException e) {
