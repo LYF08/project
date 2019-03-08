@@ -9,16 +9,16 @@ import android.widget.Button;
 
 import com.example.xin.dormitory.R;
 
-public class CheckStayAndLeftActivity extends AppCompatActivity {
+public class CheckStayAndDepartActivity extends AppCompatActivity {
 
     private Button bt_stay,bt_left;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_stay_and_left);
+        setContentView(R.layout.activity_check_stay_and_depart);
         bt_stay = findViewById(R.id.bt_stay);
-        bt_left = findViewById(R.id.bt_left);
+        bt_left = findViewById(R.id.bt_depart);
         Toolbar toolbar = findViewById(R.id.toolbar_check);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -40,10 +40,10 @@ public class CheckStayAndLeftActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()) {
                 case R.id.bt_stay:
-                    intent = new Intent(CheckStayAndLeftActivity.this,CheckStayStudentsActivity.class);
+                    intent = new Intent(CheckStayAndDepartActivity.this,CheckStayStudentsActivity.class);
                     break;
-                case R.id.bt_left:
-                    intent = new Intent(CheckStayAndLeftActivity.this,CheckLeftStudentsActivity.class);
+                case R.id.bt_depart:
+                    intent = new Intent(CheckStayAndDepartActivity.this,CheckDepartStudentsActivity.class);
                     break;
             }
             startActivity(intent);

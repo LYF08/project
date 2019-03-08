@@ -28,7 +28,7 @@
         android:textSize="20sp"/>
 
     <Button
-        android:id="@+id/bt_left"
+        android:id="@+id/bt_depart"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentRight="true"

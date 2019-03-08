@@ -20,18 +20,6 @@ public class Repair implements Serializable {
     private String OtherRemarks;
     private int Status;
 
-    public Repair(int applyID, String applyDate, String dormID, String repairName, String damageCause, String details, String contact, String otherRemarks, int status) {
-        ApplyID = applyID;
-        ApplyDate = applyDate;
-        this.dormID = dormID;
-        RepairName = repairName;
-        DamageCause = damageCause;
-        Details = details;
-        Contact = contact;
-        OtherRemarks = otherRemarks;
-        Status = status;
-    }
-
     public Repair(JSONObject jsonObject){
         try {
             ApplyID = jsonObject.getInt("ApplyID");

@@ -91,7 +91,7 @@
                 android:value=".Houseparent.LoginHActivity" />
         </activity>
         <activity
-            android:name=".Houseparent.CheckStayAndLeftActivity"
+            android:name=".Houseparent.CheckStayAndDepartActivity"
             android:label="离宿/留宿情况"
             android:parentActivityName=".Houseparent.LoginHActivity">
             <meta-data
@@ -134,7 +134,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Houseparent.ManagerAnnouncementActivity" />
         </activity>
-        /> />
         <activity
             android:name=".Houseparent.CheckAnouncementActivity"
             android:label="已发布公告" />
@@ -159,15 +158,21 @@
         <activity
             android:name=".Houseparent.SelfInfoHActivity"
             android:label="个人信息"
-            android:parentActivityName=".Houseparent.LoginHActivity"/>
+            android:parentActivityName=".Houseparent.LoginHActivity" />
         <activity
             android:name=".Houseparent.CheckStayStudentsActivity"
             android:label="留宿信息"
-            android:parentActivityName=".Houseparent.CheckStayAndLeftActivity"/>
+            android:parentActivityName=".Houseparent.CheckStayAndDepartActivity" />
         <activity
-            android:name=".Houseparent.CheckLeftStudentsActivity"
+            android:name=".Houseparent.CheckDepartStudentsActivity"
             android:label="离宿信息"
-            android:parentActivityName=".Houseparent.CheckStayAndLeftActivity">
+            android:parentActivityName=".Houseparent.CheckStayAndDepartActivity" />
+        <activity
+            android:name=".Houseparent.StayStudentsDetailsActivity"
+            android:label="留宿详情"/>
+        <activity
+            android:name=".Houseparent.DepartStudentsDetailsActivity"
+            android:label="离宿详情">
         </activity>
     </application>
 

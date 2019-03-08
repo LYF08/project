@@ -28,21 +28,21 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class UnhandledRepairActivity extends AppCompatActivity {
+public class CheckDepartStudentsActivity extends AppCompatActivity {
 
-    private List<Repair> repairList = new ArrayList<>();
-    private RepairAdapter adapter;
+    private List<Depart> departList = new ArrayList<>();
+    private DepartAdapter adapter;
     private SwipeRefreshLayout swipeRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_handled_or_unhandled_repair);
-        initUnhandledRepair();
+        setContentView(R.layout.activity_check_depart_students);
+        initDepartStudents();
         RecyclerView recyclerView = findViewById(R.id.recycle_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new RepairAdapter(repairList);
+        adapter = new DepartAdapter(departList);
         recyclerView.setAdapter(adapter);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,22 +53,22 @@ public class UnhandledRepairActivity extends AppCompatActivity {
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refreshUnhandledRepairs();
+                refreshDepartStudents();
             }
         });
     }
 
     /**
-     * 初始化显示的未处理修理申请
+     * 初始化显示的留宿学生
      */
-    private void initUnhandledRepair(){
-        repairList.clear();
+    private void initDepartStudents(){
+        departList.clear();
 
         SharedPreferences pref = getSharedPreferences("dataH",MODE_PRIVATE);
         OkHttpClient client = new OkHttpClient();
-        RequestBody requestBody = new FormBody.Builder().add("which","0").add("govern",pref.getString("govern","")).build();
+        RequestBody requestBody = new FormBody.Builder().add("govern",pref.getString("govern","")).build();
         //服务器地址，ip地址需要时常更换
-        String address=HttpUtil.address+"handleRepairInfo.php";
+        String address=HttpUtil.address+"departStudentsInfo.php";
         Request request = new Request.Builder().url(address).post(requestBody).build();
         //匿名内部类实现回调接口
         client.newCall(request).enqueue(new okhttp3.Callback(){
@@ -91,7 +91,7 @@ public class UnhandledRepairActivity extends AppCompatActivity {
                     JSONArray jsonArray = new JSONArray(responseData);
                     for(int i=0;i<jsonArray.length();++i){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        repairList.add(new Repair(jsonObject));
+                        departList.add(new Depart(jsonObject));
                     }
                     runOnUiThread(new Runnable() {
                         @Override
@@ -114,7 +114,7 @@ public class UnhandledRepairActivity extends AppCompatActivity {
     }
 
 
-    private void refreshUnhandledRepairs(){
+    private void refreshDepartStudents(){
         //网络操作耗时，故开子线程
         new Thread(new Runnable() {
             @Override
@@ -122,7 +122,7 @@ public class UnhandledRepairActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        initUnhandledRepair();
+                        initDepartStudents();
                         swipeRefresh.setRefreshing(false);
                     }
                 });

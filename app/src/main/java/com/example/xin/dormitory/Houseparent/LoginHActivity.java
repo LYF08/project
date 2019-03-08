@@ -16,9 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.xin.dormitory.R;
-import com.example.xin.dormitory.Student.LoginSActivity;
-import com.example.xin.dormitory.Student.MyDormitory;
-import com.example.xin.dormitory.Student.SelfInfoActivity;
 import com.example.xin.dormitory.Utility.HttpUtil;
 import com.example.xin.dormitory.Utility.MyApplication;
 
@@ -134,7 +131,7 @@ public class LoginHActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()) {
                 case R.id.bt_infos:
-                    intent = new Intent(LoginHActivity.this,CheckStayAndLeftActivity.class);
+                    intent = new Intent(LoginHActivity.this,CheckStayAndDepartActivity.class);
                     break;
                 case R.id.bt_announcement:
                     intent = new Intent(LoginHActivity.this,ManagerAnnouncementActivity.class);

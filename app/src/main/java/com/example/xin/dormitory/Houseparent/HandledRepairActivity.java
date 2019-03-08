@@ -37,18 +37,18 @@ public class HandledRepairActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_handled_repair);
+        setContentView(R.layout.activity_handled_or_unhandled_repair);
         inithandledRepair();
-        RecyclerView recyclerView = findViewById(R.id.recycle_view_handled);
+        RecyclerView recyclerView = findViewById(R.id.recycle_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         adapter2 = new RepairAdapter(repairList2);
         recyclerView.setAdapter(adapter2);
-        Toolbar toolbar = findViewById(R.id.toolbar_handled);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        swipeRefresh2 = findViewById(R.id.swipe_refresh_handled);
+        swipeRefresh2 = findViewById(R.id.swipe_refresh);
         swipeRefresh2.setColorSchemeResources(R.color.colorPrimary);
         swipeRefresh2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -92,14 +92,14 @@ public class HandledRepairActivity extends AppCompatActivity {
                     for(int i=0;i<jsonArray.length();++i){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         repairList2.add(new Repair(jsonObject));
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                //通知数据改变，涉及UI变化，故在runOnUiThread中操作
-                                adapter2.notifyDataSetChanged();
-                            }
-                        });
                     }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //通知数据改变，涉及UI变化，故在runOnUiThread中操作
+                            adapter2.notifyDataSetChanged();
+                        }
+                    });
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

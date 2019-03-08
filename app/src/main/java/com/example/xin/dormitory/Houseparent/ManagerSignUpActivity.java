@@ -41,10 +41,12 @@ public class ManagerSignUpActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()) {
                 case R.id.bt_newSign:
-                    //       intent = new Intent(ManagerAnnouncementActivity.this,CheckStayAndLeftActivity.class);
+                    //       intent = new Intent(ManagerAnnouncementActivity.this,CheckStayAndDepartActivity.class);
                     break;
                 case R.id.bt_situation:
                     //       intent = new Intent(ManagerAnnouncementActivity.this,ManagerAnnouncementActivity.class);
+                    break;
+                default:
                     break;
             }
             startActivity(intent);
