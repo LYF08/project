@@ -78,7 +78,7 @@ public class CreateAnnouncementActivity extends AppCompatActivity {
                     if(content.equals("")||title.equals("")){
                         Toast.makeText(MyApplication.getContext(), "标题和内容不能为空", Toast.LENGTH_SHORT).show();
                     }else {
-                        RequestBody requestBody = new FormBody.Builder().add("houseparentID", pref.getString("ID", "")).add("Atime", Atime).add("title", title).add("content", content).build();
+                        RequestBody requestBody = new FormBody.Builder().add("houseparentID", pref.getString("ID", "")).add("govern",pref.getString("govern","")).add("Atime", Atime).add("title", title).add("content", content).build();
                         //服务器地址，ip地址需要时常更换
                         String address = HttpUtil.address + "createAnnouncement.php";
                         Request request = new Request.Builder().url(address).post(requestBody).build();

@@ -3,6 +3,7 @@ package com.example.xin.dormitory.Houseparent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -53,8 +54,10 @@ public class RepairDetailsActivity extends AppCompatActivity {
         tv_Contact = findViewById(R.id.tv_Contact);
         tv_DamageCause = findViewById(R.id.tv_DamageCause);
         tv_Details = findViewById(R.id.tv_Details);
+        tv_Details.setMovementMethod(new ScrollingMovementMethod());
         tv_dormIDDetail = findViewById(R.id.tv_dormIDDetail);
         tv_OtherRemarks = findViewById(R.id.tv_OtherRemarks);
+        tv_OtherRemarks.setMovementMethod(new ScrollingMovementMethod());
         tv_RepairName = findViewById(R.id.tv_RepairName);
         bt_handled = findViewById(R.id.bt_handled);
         repair = (Repair)getIntent().getSerializableExtra("repair_data");

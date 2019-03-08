@@ -136,7 +136,8 @@
         </activity>
         <activity
             android:name=".Houseparent.CheckAnouncementActivity"
-            android:label="已发布公告" />
+            android:label="已发布公告"
+            android:parentActivityName=".Houseparent.ManagerAnnouncementActivity" />
         <activity
             android:name=".Student.DepartRegisterActivity"
             android:label="离宿登记"
@@ -169,11 +170,32 @@
             android:parentActivityName=".Houseparent.CheckStayAndDepartActivity" />
         <activity
             android:name=".Houseparent.StayStudentsDetailsActivity"
-            android:label="留宿详情"/>
+            android:label="留宿详情"
+            android:parentActivityName=".Houseparent.CheckStayStudentsActivity" />
         <activity
             android:name=".Houseparent.DepartStudentsDetailsActivity"
-            android:label="离宿详情">
-        </activity>
+            android:label="离宿详情"
+            android:parentActivityName=".Houseparent.CheckDepartStudentsActivity" />
+        <activity
+            android:name=".Houseparent.AnouncementDetailActivity"
+            android:label="公告详情"
+            android:parentActivityName=".Houseparent.CheckAnouncementActivity" />
+        <activity
+            android:name=".Student.CheckNoticesActivity"
+            android:label="通知"
+            android:parentActivityName=".Student.LoginSActivity" />
+        <activity
+            android:name=".Student.CheckAnnouncementNoticesActivity"
+            android:label="公告通知"
+            android:parentActivityName=".Student.CheckNoticesActivity" />
+        <activity
+            android:name=".Student.CheckSignNoticesActivity"
+            android:label="签到通知"
+            android:parentActivityName=".Student.CheckNoticesActivity" />
+        <activity
+            android:name=".Student.CheckAnnouncementDetailsActivity"
+            android:label="公告详情"
+            android:parentActivityName=".Student.CheckAnnouncementNoticesActivity"/>
     </application>
 
 </manifest>

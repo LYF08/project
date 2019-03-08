@@ -16,9 +16,9 @@
         android:id="@+id/photo"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/self_info_toolbar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/portrait_h" />
 
     <TextView
@@ -141,10 +141,10 @@
         android:id="@+id/alter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_below="@id/self_info_toolbar"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
         android:textSize="15dp"
         android:drawableLeft="@drawable/ic_alter"
         android:text="确认修改联系方式"

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="1dp"
+    android:layout_marginRight="1dp"
+    android:background="#f2f9f8">
+
+        <!--这是公告编号-->
+    <TextView
+        android:id="@+id/tv_theID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="无"
+        android:paddingLeft="4dp"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_theID"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="无"
+        android:textSize="15sp"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_Atime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="yyyy-MM-dd HH:mm::ss"
+        android:paddingRight="5dp"
+        android:textSize="10sp"
+        android:layout_marginBottom="2dp"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#000"
+        android:layout_alignParentBottom="true">
+    </View>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#000"
+        android:layout_alignParentTop="true">
+    </View>
+
+    <View
+        android:layout_width="0.1dp"
+        android:layout_height="match_parent"
+        android:background="#000"
+        android:layout_alignParentRight="true">
+    </View>
+
+    <View
+        android:layout_width="0.1dp"
+        android:layout_height="match_parent"
+        android:background="#000"
+        android:layout_alignParentLeft="true">
+    </View>
+
+</RelativeLayout>

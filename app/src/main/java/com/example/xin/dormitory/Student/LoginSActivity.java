@@ -131,6 +131,12 @@ public class LoginSActivity extends AppCompatActivity {
                     intent = new Intent(LoginSActivity.this, MyDormitory.class);
                     break;
                 }
+                case R.id.nav_notice:{
+                    intent = new Intent(LoginSActivity.this,CheckNoticesActivity.class);
+                    break;
+                }
+                default:
+                    break;
             }
             startActivity(intent);
             return true;
