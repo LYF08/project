@@ -1,4 +1,4 @@
-package com.example.xin.dormitory.Student;
+package com.example.xin.dormitory.Houseparent;
 
 import android.content.SharedPreferences;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.example.xin.dormitory.Common.Sign;
-import com.example.xin.dormitory.Student.SignAdapterForStudent;
 import com.example.xin.dormitory.R;
 import com.example.xin.dormitory.Utility.HttpUtil;
 import com.example.xin.dormitory.Utility.MyApplication;
@@ -31,23 +30,23 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
- * 学生仅能查询最近七天内且未签到的签到通知
+ * 签到情况类
  */
-public class CheckSignNoticesActivity extends AppCompatActivity {
+public class SignRecordSituationActivity extends AppCompatActivity {
 
     private List<Sign> signList = new ArrayList<>();
-    private SignAdapterForStudent adapter;
+    private SignAdapterForHouseparent adapter;
     private SwipeRefreshLayout swipeRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_sign_notices);
+        setContentView(R.layout.activity_sign_record_situation);
         initSignRecords();
         RecyclerView recyclerView = findViewById(R.id.recycle_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new SignAdapterForStudent(signList);
+        adapter = new SignAdapterForHouseparent(signList);
         recyclerView.setAdapter(adapter);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -64,18 +63,17 @@ public class CheckSignNoticesActivity extends AppCompatActivity {
     }
 
     /**
-     * 初始化显示的签到通知
+     * 初始化显示的签到记录
      */
     private void initSignRecords(){
         signList.clear();
 
         //学生可以接受属于这栋楼的签到，而宿管只能看自己发布的签到
-        SharedPreferences pref = getSharedPreferences("data",MODE_PRIVATE);
+        SharedPreferences pref = getSharedPreferences("dataH",MODE_PRIVATE);
         OkHttpClient client = new OkHttpClient();
-        //SID将用于排除已签到的签到通知
-        RequestBody requestBody = new FormBody.Builder().add("belong",pref.getString("belong","")).add("SID",pref.getString("ID","")).build();
+        RequestBody requestBody = new FormBody.Builder().add("houseparentID",pref.getString("ID","")).build();
         //服务器地址，ip地址需要时常更换
-        String address=HttpUtil.address+"checkSignNoticesInfo.php";
+        String address=HttpUtil.address+"checkSignRecordInfo.php";
         Request request = new Request.Builder().url(address).post(requestBody).build();
         //匿名内部类实现回调接口
         client.newCall(request).enqueue(new okhttp3.Callback(){
@@ -113,7 +111,7 @@ public class CheckSignNoticesActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MyApplication.getContext(),"数据加载完成,仅显示最近七天内未签到的通知",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MyApplication.getContext(),"数据加载完成",Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -136,4 +134,5 @@ public class CheckSignNoticesActivity extends AppCompatActivity {
             }
         }).start();
     }
+    
 }

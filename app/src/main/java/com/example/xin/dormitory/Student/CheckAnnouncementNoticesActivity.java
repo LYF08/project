@@ -9,8 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import com.example.xin.dormitory.Houseparent.Announcement;
-import com.example.xin.dormitory.Houseparent.AnnouncementAdapter;
+import com.example.xin.dormitory.Common.Announcement;
 import com.example.xin.dormitory.R;
 import com.example.xin.dormitory.Utility.HttpUtil;
 import com.example.xin.dormitory.Utility.MyApplication;

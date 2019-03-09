@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.xin.dormitory.Common.Announcement;
 import com.example.xin.dormitory.R;
 
 import java.util.List;
@@ -50,7 +51,7 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
             public void onClick(View view) {
                 int position = holder.getAdapterPosition();
                 Announcement announcement = mAnnouncementList.get(position);
-                Intent intent = new Intent(view.getContext(),AnouncementDetailActivity.class);
+                Intent intent = new Intent(view.getContext(),AnnouncementDetailActivity.class);
                 intent.putExtra("announcement_data",announcement);
                 mContext.startActivity(intent);
             }

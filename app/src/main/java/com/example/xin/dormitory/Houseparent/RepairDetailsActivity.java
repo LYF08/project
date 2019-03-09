@@ -50,7 +50,6 @@ public class RepairDetailsActivity extends AppCompatActivity {
     private void initLayout(){
         Toolbar toolbar = findViewById(R.id.toolbar_details);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tv_Contact = findViewById(R.id.tv_Contact);
         tv_DamageCause = findViewById(R.id.tv_DamageCause);
         tv_Details = findViewById(R.id.tv_Details);

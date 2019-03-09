@@ -1,6 +1,5 @@
 package com.example.xin.dormitory.Houseparent;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,7 +41,7 @@ public class ManagerAnnouncementActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()) {
                 case R.id.bt_oldAnnouncement:
-                    intent = new Intent(ManagerAnnouncementActivity.this,CheckAnouncementActivity.class);
+                    intent = new Intent(ManagerAnnouncementActivity.this,CheckAnnouncementActivity.class);
                     break;
                 case R.id.bt_newAnnouncement:
                     intent = new Intent(ManagerAnnouncementActivity.this,CreateAnnouncementActivity.class);

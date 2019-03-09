@@ -20,6 +20,9 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+/**
+ * 离宿学生详情类
+ */
 public class DepartStudentsDetailsActivity extends AppCompatActivity {
 
     private TextView tv_registerDate;
@@ -56,7 +59,7 @@ public class DepartStudentsDetailsActivity extends AppCompatActivity {
         tv_backTime = findViewById(R.id.tv_backTime);
         depart = (Depart) getIntent().getSerializableExtra("depart_data");
         tv_contact.setText(depart.getContact());
-        tv_registerDate.setText("提交日期"+depart.getRegisterDate());
+        tv_registerDate.setText("提交日期:"+depart.getRegisterDate());
         tv_ID.setText(depart.getID());
         tv_dormID.setText(depart.getDormID());
         tv_name.setText(depart.getName());

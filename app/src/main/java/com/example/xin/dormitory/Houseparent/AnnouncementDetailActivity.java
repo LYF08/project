@@ -6,9 +6,13 @@ import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
+import com.example.xin.dormitory.Common.Announcement;
 import com.example.xin.dormitory.R;
 
-public class AnouncementDetailActivity extends AppCompatActivity {
+/**
+ * 公告详情类
+ */
+public class AnnouncementDetailActivity extends AppCompatActivity {
 
     private TextView tv_title;
     private TextView tv_Atime;
@@ -19,7 +23,7 @@ public class AnouncementDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anouncement_detail);
+        setContentView(R.layout.activity_announcement_detail);
         initLayout();
     }
 

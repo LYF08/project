@@ -8,9 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.xin.dormitory.Houseparent.Announcement;
-import com.example.xin.dormitory.Houseparent.AnnouncementAdapter;
-import com.example.xin.dormitory.Houseparent.AnouncementDetailActivity;
+import com.example.xin.dormitory.Common.Announcement;
 import com.example.xin.dormitory.R;
 
 import java.util.List;

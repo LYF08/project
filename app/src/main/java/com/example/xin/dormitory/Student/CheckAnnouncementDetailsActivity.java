@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
-import com.example.xin.dormitory.Houseparent.Announcement;
+import com.example.xin.dormitory.Common.Announcement;
 import com.example.xin.dormitory.R;
 
 /**

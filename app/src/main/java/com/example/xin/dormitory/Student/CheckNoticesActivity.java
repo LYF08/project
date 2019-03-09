@@ -7,9 +7,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.xin.dormitory.Houseparent.CheckAnouncementActivity;
-import com.example.xin.dormitory.Houseparent.CreateAnnouncementActivity;
-import com.example.xin.dormitory.Houseparent.ManagerAnnouncementActivity;
 import com.example.xin.dormitory.R;
 
 public class CheckNoticesActivity extends AppCompatActivity {

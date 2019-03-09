@@ -92,12 +92,5 @@
         android:layout_marginLeft="30dp"
         android:layout_toRightOf="@id/bt_register"
         android:background="#90EE90"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="忘记密码？"
-        android:gravity="center"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="90dp" />
+
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.xin.dormitory.Houseparent;
+package com.example.xin.dormitory.Common;
 
 import android.widget.Toast;
 
@@ -8,6 +8,9 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 
+/**
+ * 公告类
+ */
 public class Announcement implements Serializable {
 
     private int ID;

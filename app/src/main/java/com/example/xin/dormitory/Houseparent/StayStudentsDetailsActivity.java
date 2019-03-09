@@ -42,7 +42,7 @@ public class StayStudentsDetailsActivity extends AppCompatActivity {
         tv_endDate = findViewById(R.id.tv_endDate);
         stay = (Stay) getIntent().getSerializableExtra("stay_data");
         tv_contact.setText(stay.getContact());
-        tv_registerDate.setText("提交日期"+stay.getRegisterDate());
+        tv_registerDate.setText("提交日期:"+stay.getRegisterDate());
         tv_ID.setText(stay.getID());
         tv_dormID.setText(stay.getDormID());
         tv_name.setText(stay.getName());

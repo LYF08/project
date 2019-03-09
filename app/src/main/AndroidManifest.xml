@@ -22,16 +22,20 @@
         <activity android:name=".Common.RegisterActivity" />
         <activity
             android:name=".Houseparent.LoginHActivity"
-            android:label="宿舍管理" />
+            android:label="宿舍管理"
+            android:launchMode="singleTop" />
         <activity
             android:name=".Student.LoginSActivity"
-            android:label="宿舍管理" />
+            android:label="宿舍管理"
+            android:launchMode="singleTop" />
         <activity
             android:name=".Student.DormitoryActivity"
-            android:label="宿舍天地" />
+            android:label="宿舍天地"
+            android:launchMode="singleTop" />
         <activity
             android:name=".Student.MyDormitory"
             android:label="我的宿舍"
+            android:launchMode="singleTop"
             android:parentActivityName=".Student.LoginSActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -41,6 +45,7 @@
         <activity
             android:name=".Student.SelfInfoActivity"
             android:label="个人信息"
+            android:launchMode="singleTop"
             android:parentActivityName=".Student.LoginSActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -50,6 +55,7 @@
         <activity
             android:name=".Student.AlterSelfInfoActivity"
             android:label="修改信息"
+            android:launchMode="singleTop"
             android:parentActivityName=".Student.SelfInfoActivity"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -59,6 +65,7 @@
         <activity
             android:name=".Student.DormitoryAffairsActivity"
             android:label="宿舍事务"
+            android:launchMode="singleTop"
             android:parentActivityName=".Student.LoginSActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -68,6 +75,7 @@
         <activity
             android:name=".Student.RepairApplicationActivity"
             android:label="维修申请"
+            android:launchMode="singleTop"
             android:parentActivityName=".Student.MyDormitory"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -77,6 +85,7 @@
         <activity
             android:name=".Houseparent.ManagerRepairActivity"
             android:label="管理维修"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.LoginHActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -85,6 +94,7 @@
         <activity
             android:name=".Houseparent.ManagerAnnouncementActivity"
             android:label="公告管理"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.LoginHActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -93,6 +103,7 @@
         <activity
             android:name=".Houseparent.CheckStayAndDepartActivity"
             android:label="离宿/留宿情况"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.LoginHActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -101,6 +112,7 @@
         <activity
             android:name=".Houseparent.ManagerSignUpActivity"
             android:label="签到相关"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.LoginHActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -109,6 +121,7 @@
         <activity
             android:name=".Houseparent.UnhandledRepairActivity"
             android:label="未处理申请"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.ManagerRepairActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -117,6 +130,7 @@
         <activity
             android:name=".Houseparent.HandledRepairActivity"
             android:label="已处理申请"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.ManagerRepairActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -124,10 +138,12 @@
         </activity>
         <activity
             android:name=".Houseparent.RepairDetailsActivity"
-            android:label="申请详情" />
+            android:label="申请详情"
+            android:launchMode="singleTop" />
         <activity
             android:name=".Houseparent.CreateAnnouncementActivity"
             android:label="发布新公告"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.ManagerAnnouncementActivity"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -135,12 +151,14 @@
                 android:value=".Houseparent.ManagerAnnouncementActivity" />
         </activity>
         <activity
-            android:name=".Houseparent.CheckAnouncementActivity"
+            android:name=".Houseparent.CheckAnnouncementActivity"
             android:label="已发布公告"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.ManagerAnnouncementActivity" />
         <activity
             android:name=".Student.DepartRegisterActivity"
             android:label="离宿登记"
+            android:launchMode="singleTop"
             android:parentActivityName=".Student.DormitoryAffairsActivity"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -150,6 +168,7 @@
         <activity
             android:name=".Student.StayRegisterActivity"
             android:label="留宿登记"
+            android:launchMode="singleTop"
             android:parentActivityName=".Student.DormitoryAffairsActivity"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -159,43 +178,62 @@
         <activity
             android:name=".Houseparent.SelfInfoHActivity"
             android:label="个人信息"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.LoginHActivity" />
         <activity
             android:name=".Houseparent.CheckStayStudentsActivity"
             android:label="留宿信息"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.CheckStayAndDepartActivity" />
         <activity
             android:name=".Houseparent.CheckDepartStudentsActivity"
             android:label="离宿信息"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.CheckStayAndDepartActivity" />
         <activity
             android:name=".Houseparent.StayStudentsDetailsActivity"
             android:label="留宿详情"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.CheckStayStudentsActivity" />
         <activity
             android:name=".Houseparent.DepartStudentsDetailsActivity"
             android:label="离宿详情"
+            android:launchMode="singleTop"
             android:parentActivityName=".Houseparent.CheckDepartStudentsActivity" />
         <activity
-            android:name=".Houseparent.AnouncementDetailActivity"
+            android:name=".Houseparent.AnnouncementDetailActivity"
             android:label="公告详情"
-            android:parentActivityName=".Houseparent.CheckAnouncementActivity" />
+            android:launchMode="singleTop"
+            android:parentActivityName=".Houseparent.CheckAnnouncementActivity" />
         <activity
             android:name=".Student.CheckNoticesActivity"
             android:label="通知"
+            android:launchMode="singleTop"
             android:parentActivityName=".Student.LoginSActivity" />
         <activity
             android:name=".Student.CheckAnnouncementNoticesActivity"
             android:label="公告通知"
+            android:launchMode="singleTop"
             android:parentActivityName=".Student.CheckNoticesActivity" />
         <activity
             android:name=".Student.CheckSignNoticesActivity"
             android:label="签到通知"
+            android:launchMode="singleTop"
             android:parentActivityName=".Student.CheckNoticesActivity" />
         <activity
             android:name=".Student.CheckAnnouncementDetailsActivity"
             android:label="公告详情"
-            android:parentActivityName=".Student.CheckAnnouncementNoticesActivity"/>
+            android:launchMode="singleTop"
+            android:parentActivityName=".Student.CheckAnnouncementNoticesActivity" />
+        <activity
+            android:name=".Houseparent.SignRecordSituationActivity"
+            android:label="签到情况"
+            android:launchMode="singleTop"
+            android:parentActivityName=".Houseparent.ManagerSignUpActivity" />
+        <activity android:name=".Houseparent.CheckUnsignedStudentsActivity"
+            android:label="未签到学生"
+            android:launchMode="singleTop"
+            android:parentActivityName=".Houseparent.SignRecordSituationActivity"></activity>
     </application>
 
 </manifest>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2019-02-18 17:03:33
+-- Generation Time: 2019-03-09 14:35:44
 -- 服务器版本： 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -34,8 +34,17 @@ CREATE TABLE `stayinfo` (
   `startDate` datetime NOT NULL,
   `endDate` datetime NOT NULL,
   `contact` varchar(12) NOT NULL,
-  `belong` varchar(12) NOT NULL
+  `belong` varchar(12) NOT NULL,
+  `name` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `stayinfo`
+--
+
+INSERT INTO `stayinfo` (`stayID`, `registerDate`, `ID`, `dormID`, `startDate`, `endDate`, `contact`, `belong`, `name`) VALUES
+(1, '2019-02-19 12:43:35', '100', '', '2019-02-19 12:43:00', '2019-02-19 13:00:00', '153758884665', 'A', ''),
+(3, '2019-03-05 01:00:00', '24', 'A777', '2019-03-06 00:00:00', '2019-03-07 00:00:00', '252727', '', 'ROBOT');
 
 --
 -- Indexes for dumped tables
@@ -55,7 +64,7 @@ ALTER TABLE `stayinfo`
 -- 使用表AUTO_INCREMENT `stayinfo`
 --
 ALTER TABLE `stayinfo`
-  MODIFY `stayID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `stayID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
