@@ -168,7 +168,7 @@ public class LoginSActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()){
                 case R.id.button1:
-                    intent = new Intent(LoginSActivity.this, DormitoryActivity.class);
+                    intent = new Intent(LoginSActivity.this, PostsListActivity.class);
                     break;
                 case R.id.button2:
                     intent  = new Intent(LoginSActivity.this, DormitoryAffairsActivity.class);
