@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.Call;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -137,7 +138,7 @@ public class PostsChatActivity extends AppCompatActivity {
                                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                                 String sendTime = formatter.format(new Date(System.currentTimeMillis()));
                                 Message msg = new Message();
-                                msg.setImageId(R.drawable.ic_1);
+                                msg.setImageId(R.drawable.portrait_s);
                                 msg.setContent(message);
                                 msg.setType(Message.TYPE_SENT);
                                 msgList.add(msg);
@@ -189,7 +190,7 @@ public class PostsChatActivity extends AppCompatActivity {
      */
     public void connect(){
         //host和port与服务端server.php里的保持一致,看一下server.php文件。。
-        final String host = "192.168.43.176";
+        final String host = HttpUtil.host;
         final int port = 8888;
         AsyncTask<Void, String , Void> read = new AsyncTask<Void, String, Void>() {
             @Override
@@ -323,7 +324,7 @@ public class PostsChatActivity extends AppCompatActivity {
                         for(int i=0;i<jsonArray.length();i++){
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             Message msg = new Message();
-                            msg.setImageId(R.drawable.ic_1);
+                            msg.setImageId(R.drawable.portrait_s);
                             msg.setName(jsonObject.getString("SenderName"));
                             msg.setContent(jsonObject.getString("Message"));
                             if(SenderID.equals(jsonObject.getString("SenderID"))){
@@ -380,6 +381,8 @@ public class PostsChatActivity extends AppCompatActivity {
             RelativeLayout leftLayout;
             RelativeLayout rightLayout;
             TextView leftchatterName;
+            CircleImageView left_chatter_image;
+            CircleImageView right_chatter_image;
 
 
             public ViewHolder(View view) {
@@ -389,6 +392,9 @@ public class PostsChatActivity extends AppCompatActivity {
                 leftMsg = view.findViewById(R.id.left_msg);
                 rightMsg = view.findViewById(R.id.right_msg);
                 leftchatterName = view.findViewById(R.id.left_chatter_name);
+                left_chatter_image = view.findViewById(R.id.left_chatter_image);
+                right_chatter_image = view.findViewById(R.id.right_chatter_image);
+
             }
         }
 
@@ -409,10 +415,12 @@ public class PostsChatActivity extends AppCompatActivity {
                 holder.leftLayout.setVisibility(View.VISIBLE);
                 holder.rightLayout.setVisibility(View.GONE);
                 holder.leftMsg.setText(msg.getContent());
+                holder.left_chatter_image.setImageResource(msg.getImageId());
                 holder.leftchatterName.setText(msg.getName());
             }else if(msg.getType() == Message.TYPE_SENT){
                 holder.rightLayout.setVisibility(View.VISIBLE);
                 holder.leftLayout.setVisibility(View.GONE);
+                holder.right_chatter_image.setImageResource(msg.getImageId());
                 holder.rightMsg.setText(msg.getContent());
             }
         }

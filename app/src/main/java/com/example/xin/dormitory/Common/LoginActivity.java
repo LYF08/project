@@ -1,6 +1,8 @@
 package com.example.xin.dormitory.Common;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
@@ -11,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.xin.dormitory.Houseparent.LoginHActivity;
@@ -28,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private RadioButton student;
     private EditText et_account,et_pwd;
     private Button bt_register,bt_login;
-
+    private TextView changeHost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,43 @@ public class LoginActivity extends AppCompatActivity {
         student = findViewById(R.id.student);
         bt_register = findViewById(R.id.bt_register);
         bt_login = findViewById(R.id.bt_login);
+        changeHost = findViewById(R.id.change_host);
+        changeHost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final EditText et_host = new EditText(LoginActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                builder.setTitle("输入host").setView(et_host)
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(!(et_host.getText().toString()).equals("")) {
+                                    HttpUtil.host = et_host.getText().toString();
+                                    HttpUtil.address = "http://"+et_host.getText().toString()+":8080/dormitoryPHP/";
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(LoginActivity.this, "修改成功" + HttpUtil.address, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }else{
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(LoginActivity.this, "修改失败，不能为空", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+                            }
+                        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                }).show();
+
+            }
+        });
         cb1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

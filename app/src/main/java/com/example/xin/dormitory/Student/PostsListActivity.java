@@ -257,9 +257,6 @@ public class PostsListActivity extends AppCompatActivity {
             return holder;
         }
 
-        public void setmPostList(List<Posts> mPostList) {
-            this.mPostList = mPostList;
-        }
 
         @Override
         public void onBindViewHolder(ViewHolder holder, final int position) {
