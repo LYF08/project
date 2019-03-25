@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -35,6 +37,7 @@ public class ManagerSignUpActivity extends AppCompatActivity {
 
     private Button bt_newSign;
     private Button bt_situation;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +65,13 @@ public class ManagerSignUpActivity extends AppCompatActivity {
         public void onClick(View v){
             switch(v.getId()) {
                 case R.id.bt_newSign:
+                    myAnimation= AnimationUtils.loadAnimation(ManagerSignUpActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     postNewSign();
                     break;
                 case R.id.bt_situation:
+                    myAnimation= AnimationUtils.loadAnimation(ManagerSignUpActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     startActivity(new Intent(ManagerSignUpActivity.this,SignRecordSituationActivity.class));
                     break;
                 default:

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +38,7 @@ public class RepairDetailsActivity extends AppCompatActivity {
     private TextView tv_OtherRemarks;
     private Button bt_handled;
     private Repair repair;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +93,8 @@ public class RepairDetailsActivity extends AppCompatActivity {
         public void onClick(View v){
             switch(v.getId()) {
                 case R.id.bt_handled:
-
+                    myAnimation= AnimationUtils.loadAnimation(RepairDetailsActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     OkHttpClient client = new OkHttpClient();
                     RequestBody requestBody = new FormBody.Builder().add("ApplyID",repair.getApplyID()+"").build();
                     //服务器地址，ip地址需要时常更换

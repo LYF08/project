@@ -13,10 +13,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.xin.dormitory.Common.LoginActivity;
 import com.example.xin.dormitory.R;
 import com.example.xin.dormitory.Utility.HttpUtil;
 import com.example.xin.dormitory.Utility.MyApplication;
@@ -39,6 +42,7 @@ public class LoginSActivity extends AppCompatActivity {
     private DrawerLayout mSDrawlayout;
     private NavigationView navView;
     private TextView tv_username;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,9 +172,13 @@ public class LoginSActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()){
                 case R.id.button1:
+                    myAnimation= AnimationUtils.loadAnimation(LoginSActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(LoginSActivity.this, PostsListActivity.class);
                     break;
                 case R.id.button2:
+                    myAnimation= AnimationUtils.loadAnimation(LoginSActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent  = new Intent(LoginSActivity.this, DormitoryAffairsActivity.class);
                     break;
             }

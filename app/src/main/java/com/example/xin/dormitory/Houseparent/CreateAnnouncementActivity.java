@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,6 +33,7 @@ public class CreateAnnouncementActivity extends AppCompatActivity {
     private EditText et_title;
     private EditText et_content;
     private TextView tv_announce;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,8 @@ public class CreateAnnouncementActivity extends AppCompatActivity {
                     String title = et_title.getText().toString();
                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm::ss");
                     String Atime = formatter.format(new Date(System.currentTimeMillis()));
+                    myAnimation= AnimationUtils.loadAnimation(CreateAnnouncementActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     SharedPreferences pref = getSharedPreferences("dataH",MODE_PRIVATE);
                     OkHttpClient client = new OkHttpClient();
                     if(content.equals("")||title.equals("")){

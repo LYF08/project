@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ public class DormitoryAffairsActivity extends AppCompatActivity {
     private TextView tv_dormID;
     private Button button_StayAway;
     private Button button_Stay;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +52,13 @@ public class DormitoryAffairsActivity extends AppCompatActivity {
             Intent intent = null;
             switch (v.getId()) {
                 case R.id.button_StayAway:
+                    myAnimation= AnimationUtils.loadAnimation(DormitoryAffairsActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(DormitoryAffairsActivity.this, DepartRegisterActivity.class);
                     break;
                 case R.id.button_Stay:
+                    myAnimation= AnimationUtils.loadAnimation(DormitoryAffairsActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(DormitoryAffairsActivity.this, StayRegisterActivity.class);
                     break;
             }

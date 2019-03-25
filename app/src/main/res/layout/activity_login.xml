@@ -5,7 +5,7 @@
     android:paddingTop="75dp"
     android:paddingLeft = "15dp"
     android:paddingRight="15dp"
-    android:background="@drawable/timg">
+    android:background="@drawable/timg_login">
     <TextView
         android:id="@+id/tv_1"
         android:layout_width="match_parent"
@@ -73,25 +73,29 @@
             android:textSize="20sp"
             android:checked="true"/>
     </RadioGroup>
+
     <Button
         android:id="@+id/bt_register"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="197dp"
+        android:layout_marginStart="61dp"
+        android:background="@drawable/button_main3"
         android:text="注 册"
-        android:layout_below="@id/rg_1"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="45dp"
-        android:background="#90EE90"/>
+        android:layout_marginLeft="61dp"
+        android:layout_alignParentLeft="true" />
+
     <Button
         android:id="@+id/bt_login"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="登 陆"
-        android:layout_below="@id/rg_1"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@id/bt_register"
-        android:background="#90EE90"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/bt_register"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/button_main3"
+        android:text="登 陆" />
     <TextView
         android:id="@+id/change_host"
         android:layout_width="match_parent"

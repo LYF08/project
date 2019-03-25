@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.example.xin.dormitory.R;
@@ -13,6 +15,7 @@ public class CheckNoticesActivity extends AppCompatActivity {
 
     private Button bt_announcement;
     private Button bt_sign;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +47,13 @@ public class CheckNoticesActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()) {
                 case R.id.bt_announcement:
+                    myAnimation= AnimationUtils.loadAnimation(CheckNoticesActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(CheckNoticesActivity.this,CheckAnnouncementNoticesActivity.class);
                     break;
                 case R.id.bt_sign:
+                    myAnimation= AnimationUtils.loadAnimation(CheckNoticesActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(CheckNoticesActivity.this,CheckSignNoticesActivity.class);
                     break;
                 default:

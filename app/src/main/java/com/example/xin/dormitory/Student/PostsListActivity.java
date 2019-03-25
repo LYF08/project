@@ -320,6 +320,7 @@ public class PostsListActivity extends AppCompatActivity {
                                 }
                             }).create();
                     alertDialog.show();
+                    alertDialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_corner);
                 }
             });
             if((posts.getPublisherID()).equals(ID)){

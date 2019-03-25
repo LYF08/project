@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +42,7 @@ public class LoginHActivity extends AppCompatActivity {
     private Button bt_infos;
     private DrawerLayout mSDrawlayout;
     private NavigationView navView;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,15 +134,23 @@ public class LoginHActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()) {
                 case R.id.bt_infos:
+                    myAnimation= AnimationUtils.loadAnimation(LoginHActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(LoginHActivity.this,CheckStayAndDepartActivity.class);
                     break;
                 case R.id.bt_announcement:
+                    myAnimation= AnimationUtils.loadAnimation(LoginHActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(LoginHActivity.this,ManagerAnnouncementActivity.class);
                     break;
                 case R.id.bt_repair:
+                    myAnimation= AnimationUtils.loadAnimation(LoginHActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(LoginHActivity.this,ManagerRepairActivity.class);
                     break;
                 case R.id.bt_sign:
+                    myAnimation= AnimationUtils.loadAnimation(LoginHActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(LoginHActivity.this,ManagerSignUpActivity.class);
                     break;
             }

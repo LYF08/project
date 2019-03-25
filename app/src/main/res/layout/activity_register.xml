@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
-    android:background="@drawable/timg">
+    android:background="@drawable/timg_login">
 
     <TextView
         android:id="@+id/tv_title"
@@ -143,6 +143,6 @@
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:textColor="#000"
-        android:background="#90EE90"/>
+        android:background="@drawable/button_main3"/>
 
 </RelativeLayout>

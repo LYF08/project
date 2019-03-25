@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,6 +21,7 @@ public class MyDormitory extends AppCompatActivity {
     private Button bt_ele;
     private Button repair;
     private TextView tv_dorm;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +60,13 @@ public class MyDormitory extends AppCompatActivity {
             switch(v.getId()) {
                 case R.id.bt_ele:
                 case R.id.bt_water:
+                    myAnimation= AnimationUtils.loadAnimation(MyDormitory.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(MyDormitory.this,CheckEleAndWaterActivity.class);
                     break;
                 case R.id.repair:
+                    myAnimation= AnimationUtils.loadAnimation(MyDormitory.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(MyDormitory.this, RepairApplicationActivity.class);
                     break;
                 default:

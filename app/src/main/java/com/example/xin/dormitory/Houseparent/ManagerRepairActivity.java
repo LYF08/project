@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.example.xin.dormitory.R;
@@ -13,6 +15,7 @@ public class ManagerRepairActivity extends AppCompatActivity {
 
     private Button bt_unhandleApplication;
     private Button bt_handleApplication;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +44,14 @@ public class ManagerRepairActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()) {
                 case R.id.bt_handleApplication:
-                           intent = new Intent(ManagerRepairActivity.this,HandledRepairActivity.class);
+                    myAnimation= AnimationUtils.loadAnimation(ManagerRepairActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
+                    intent = new Intent(ManagerRepairActivity.this,HandledRepairActivity.class);
                     break;
                 case R.id.bt_unhandleApplication:
-                           intent = new Intent(ManagerRepairActivity.this,UnhandledRepairActivity.class);
+                    myAnimation= AnimationUtils.loadAnimation(ManagerRepairActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
+                    intent = new Intent(ManagerRepairActivity.this,UnhandledRepairActivity.class);
                     break;
             }
             startActivity(intent);

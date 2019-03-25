@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,6 +34,7 @@ public class RepairApplicationActivity extends AppCompatActivity {
     private EditText et_Details;
     private EditText et_Contact;
     private EditText et_OtherRemarks;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,8 @@ public class RepairApplicationActivity extends AppCompatActivity {
                     String Contact = et_Contact.getText().toString();
                     String OtherRemarks = et_OtherRemarks.getText().toString();
                     String belong = pref.getString("belong", "");
+                    myAnimation= AnimationUtils.loadAnimation(RepairApplicationActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     OkHttpClient client = new OkHttpClient();
                     if(RepairName.equals("")||Contact.equals("")){
                         Toast.makeText(MyApplication.getContext(), "维修物件不能为空和联系方式不能为空", Toast.LENGTH_SHORT).show();

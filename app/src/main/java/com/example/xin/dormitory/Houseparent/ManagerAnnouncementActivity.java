@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.example.xin.dormitory.R;
@@ -13,6 +15,7 @@ public class ManagerAnnouncementActivity extends AppCompatActivity {
 
     private Button bt_newAnnouncement;
     private Button bt_oldAnnouncement;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +44,13 @@ public class ManagerAnnouncementActivity extends AppCompatActivity {
             Intent intent = null;
             switch(v.getId()) {
                 case R.id.bt_oldAnnouncement:
+                    myAnimation= AnimationUtils.loadAnimation(ManagerAnnouncementActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(ManagerAnnouncementActivity.this,CheckAnnouncementActivity.class);
                     break;
                 case R.id.bt_newAnnouncement:
+                    myAnimation= AnimationUtils.loadAnimation(ManagerAnnouncementActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     intent = new Intent(ManagerAnnouncementActivity.this,CreateAnnouncementActivity.class);
                     break;
                 default:

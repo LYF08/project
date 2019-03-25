@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -34,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText et_phone;
     private EditText et_nickname;
     private EditText et_belong;
+    private Animation myAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,6 +163,8 @@ public class RegisterActivity extends AppCompatActivity {
                     String nickname = et_nickname.getText().toString();
                     String belong = et_belong.getText().toString();
                     String confirm = et_confirm.getText().toString();
+                    myAnimation= AnimationUtils.loadAnimation(RegisterActivity.this, R.anim.anim_alpha);
+                    v.startAnimation(myAnimation);
                     if(ID.equals("")||pwd.equals("")||name.equals("")||dorm.equals("")||belong.equals("")||confirm.equals("")) {
                         Toast.makeText(MyApplication.getContext(), "注册失败", Toast.LENGTH_SHORT).show();
                     }else if(pwd.equals(confirm)){
