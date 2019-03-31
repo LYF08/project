@@ -6,6 +6,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.xin.dormitory.R;
+import com.example.xin.dormitory.Utility.HttpUtil;
 
 public class CheckEleAndWaterActivity extends AppCompatActivity {
 
@@ -18,6 +19,18 @@ public class CheckEleAndWaterActivity extends AppCompatActivity {
         wv_view = findViewById(R.id.wv_view);
         wv_view.getSettings().setJavaScriptEnabled(true);
         wv_view.setWebViewClient(new WebViewClient());
-        wv_view.loadUrl("https://ssp.scnu.edu.cn");
+        String source = getIntent().getStringExtra("source");
+        String url = null;
+        switch (source){
+            case "water":
+                url = HttpUtil.waterCheck;
+                break;
+            case "electricity":
+                url = HttpUtil.electricityCheck;
+                break;
+            default:
+                break;
+        }
+        wv_view.loadUrl(url);
     }
 }

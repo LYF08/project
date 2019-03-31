@@ -55,6 +55,10 @@ public class LoginSActivity extends AppCompatActivity {
         navView = findViewById(R.id.nav_view);
         tv_username = findViewById(R.id.tv_username);
 
+        //初始化HttpUtil中的水电费地址
+        SharedPreferences pref = getSharedPreferences("data",MODE_PRIVATE);
+        HttpUtil.waterCheck = pref.getString("waterCheck",null);
+        HttpUtil.electricityCheck = pref.getString("electricityCheck",null);
         //把信息存到sharedpreferences里
         OkHttpClient client = new OkHttpClient();
         RequestBody requestBody = new FormBody.Builder().add("ID",HttpUtil.ID).build();
@@ -96,7 +100,6 @@ public class LoginSActivity extends AppCompatActivity {
         });
 
         ActionBar actionBar = getSupportActionBar();
-        SharedPreferences pref = getSharedPreferences("data",MODE_PRIVATE);
         tv_username.setText(pref.getString("nickname",""));
 
         Button dormbutton= findViewById(R.id.button1);
