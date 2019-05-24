@@ -51,6 +51,10 @@ public class LoginSActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
+
+        //启动服务
+        startService(new Intent(this,ForegroundService.class));
+
         mSDrawlayout = findViewById(R.id.drawer_layout);
         navView = findViewById(R.id.nav_view);
         tv_username = findViewById(R.id.tv_username);
@@ -116,6 +120,10 @@ public class LoginSActivity extends AppCompatActivity {
         setListeners();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     private void setListeners(){
         NavigationItem navigationItem = new NavigationItem();
@@ -157,6 +165,12 @@ public class LoginSActivity extends AppCompatActivity {
 //        return  super.onCreateOptionsMenu(menu);
 //    }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopService(new Intent(this,ForegroundService.class));
+    }
 
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){

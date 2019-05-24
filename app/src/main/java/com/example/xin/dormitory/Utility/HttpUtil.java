@@ -17,6 +17,7 @@ public class HttpUtil {
 
     public static String ID = null;
     public static String HID = null;
+
     /**
      * 根据服务器返回的JSON数据判断用户是否存在
      * @param JSONData 返回的JSON数据

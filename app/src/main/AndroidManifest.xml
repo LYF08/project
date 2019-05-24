@@ -256,6 +256,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Student.PostsListActivity" />
         </activity>
+
+        <service
+            android:name=".Student.ForegroundService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

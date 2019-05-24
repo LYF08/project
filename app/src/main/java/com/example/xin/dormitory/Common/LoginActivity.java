@@ -104,6 +104,10 @@ public class LoginActivity extends AppCompatActivity {
         setListeners();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     /**
      * 监听器初始化

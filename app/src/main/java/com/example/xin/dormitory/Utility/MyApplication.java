@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.nio.channels.NetworkChannel;
 
-//这个类用于获得全局context，在难以获得context的情况下有用
+//这个类用于获得全局context，在难以获得context的情况下有用，同时用于接收广播（尝试了BaseActivity接收，效果更差）
 public class MyApplication extends Application {
     private static Context context;
     private IntentFilter intentFilter;
