@@ -1,5 +1,6 @@
 package com.example.xin.dormitory.Student;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -324,6 +325,7 @@ public class PostsChatActivity extends AppCompatActivity {
                         for(int i=0;i<jsonArray.length();i++){
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             Message msg = new Message();
+                            msg.setId(jsonObject.getString("SenderID"));
                             msg.setImageId(R.drawable.portrait_s);
                             msg.setName(jsonObject.getString("SenderName"));
                             msg.setContent(jsonObject.getString("Message"));
@@ -410,13 +412,53 @@ public class PostsChatActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(MsgAdapter.ViewHolder holder, int position) {
-            Message msg = mMsgList.get(position);
+            final Message msg = mMsgList.get(position);
             if(msg.getType() == Message.TYPE_RECEIVED){
                 holder.leftLayout.setVisibility(View.VISIBLE);
                 holder.rightLayout.setVisibility(View.GONE);
                 holder.leftMsg.setText(msg.getContent());
                 holder.left_chatter_image.setImageResource(msg.getImageId());
                 holder.leftchatterName.setText(msg.getName());
+                holder.left_chatter_image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        OkHttpClient client = new OkHttpClient();
+                        RequestBody requestBody = new FormBody.Builder().add("ID", msg.getId()).build();
+                        String address=HttpUtil.address+"infoS.php";
+                        Request request = new Request.Builder().url(address).post(requestBody).build();
+                        //匿名内部类实现回调接口
+                        client.newCall(request).enqueue(new okhttp3.Callback(){
+
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                e.printStackTrace();
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(MyApplication.getContext(),"服务器连接失败，无法获取信息",Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                String responseData = response.body().string();
+                                try {
+                                    Intent intent = new Intent(PostsChatActivity.this,AddContactsActivity.class);
+                                    JSONObject jsonObject = new JSONObject(responseData);
+                                    intent.putExtra("contactName",jsonObject.getString("name"));
+                                    intent.putExtra("contactID",jsonObject.getString("ID"));
+                                    intent.putExtra("contactPhone",jsonObject.getString("phone"));
+                                    intent.putExtra("contactNickName",jsonObject.getString("nickname"));
+                                    intent.putExtra("contactBelong",jsonObject.getString("belong"));
+                                    startActivity(intent);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    }
+                });
             }else if(msg.getType() == Message.TYPE_SENT){
                 holder.rightLayout.setVisibility(View.VISIBLE);
                 holder.leftLayout.setVisibility(View.GONE);

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
 
     <application
         android:name=".Utility.MyApplication"
@@ -260,7 +261,16 @@
         <service
             android:name=".Student.ForegroundService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity
+            android:name=".Student.AddContactsActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".Student.PostsChatActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Student.PostsChatActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ public class Message {
     private int type;
     private int imageId;
     private String name;
+    private String Id;
     public String getName(){
         return name;
     }
@@ -35,5 +36,11 @@ public class Message {
         this.type = type;
     }
 
+    public String getId() {
+        return Id;
+    }
 
+    public void setId(String id) {
+        Id = id;
+    }
 }
