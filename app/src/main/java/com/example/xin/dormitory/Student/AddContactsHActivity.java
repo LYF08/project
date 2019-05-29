@@ -13,39 +13,37 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.xin.dormitory.R;
 
-
-public class AddContactsActivity extends AppCompatActivity {
-    private TextView contactName;
-    private TextView contactNickName;
-    private TextView contactID;
-    private TextView contactPhone;
-    private TextView contactBelong;
-    private TextView tv_add_contacts;
+public class AddContactsHActivity extends AppCompatActivity {
+    private TextView contactHName;
+    private TextView contactHID;
+    private TextView contactHPhone;
+    private TextView contactHGovern;
+    private TextView tv_add_contacts_h;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_contacts);
-        Toolbar toolbar_add_contacts = findViewById(R.id.toolbar_add_contacts);
-        toolbar_add_contacts.setTitle("");
-        setSupportActionBar(toolbar_add_contacts);
+        setContentView(R.layout.activity_add_contacts_h);
+        Toolbar toolbar_add_contacts_h = findViewById(R.id.toolbar_add_contacts_h);
+        toolbar_add_contacts_h.setTitle("");
+        setSupportActionBar(toolbar_add_contacts_h);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        contactID = findViewById(R.id.contact_id);
-        contactName = findViewById(R.id.contact_name);
-        contactNickName = findViewById(R.id.contact_nickname);
-        contactPhone = findViewById(R.id.contact_phone);
-        contactBelong = findViewById(R.id.contact_belong);
-        tv_add_contacts = findViewById(R.id.tv_add_contacts);
-        tv_add_contacts.setOnClickListener(new View.OnClickListener() {
+        contactHID = findViewById(R.id.contact_h_id);
+        contactHName = findViewById(R.id.contact_h_name);
+        contactHPhone = findViewById(R.id.contact_h_phone);
+        contactHGovern = findViewById(R.id.contact_h_govern);
+        tv_add_contacts_h = findViewById(R.id.tv_add_contacts_h);
+        tv_add_contacts_h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ContextCompat.checkSelfPermission(AddContactsActivity.this, Manifest.permission.WRITE_CONTACTS)!= PackageManager.PERMISSION_GRANTED){
-                    ActivityCompat.requestPermissions(AddContactsActivity.this,new String[]{Manifest.permission.WRITE_CONTACTS},1);
+                if(ContextCompat.checkSelfPermission(AddContactsHActivity.this, Manifest.permission.WRITE_CONTACTS)!= PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(AddContactsHActivity.this,new String[]{Manifest.permission.WRITE_CONTACTS},1);
                 }else{
                     write();
                 }
@@ -53,35 +51,46 @@ public class AddContactsActivity extends AppCompatActivity {
         });
         init();
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void init(){
-        contactName.setText(getIntent().getStringExtra("contactName"));
-        contactID.setText("学号："+getIntent().getStringExtra("contactID"));
-        contactPhone.setText("联系方式："+getIntent().getStringExtra("contactPhone"));
-        contactNickName.setText("昵称："+ getIntent().getStringExtra("contactNickName"));
-        contactBelong.setText("所属宿舍楼："+getIntent().getStringExtra("contactBelong"));
+        contactHName.setText(getIntent().getStringExtra("contactHName"));
+        contactHID.setText("ID："+getIntent().getStringExtra("contactHID"));
+        contactHPhone.setText("联系方式："+getIntent().getStringExtra("contactHPhone"));
+        contactHGovern.setText("管理宿舍楼："+getIntent().getStringExtra("contactHGovern"));
     }
     private void write(){
         ContentValues values = new ContentValues();
         ContentResolver contentResolver = getContentResolver();
         Uri rawContactUri = contentResolver.insert(ContactsContract.RawContacts.CONTENT_URI,values);
         long rawContactId = ContentUris.parseId(rawContactUri);
-        if(contactName.getText()!=""){
+        if(contactHName.getText()!=""&&contactHGovern.getText()!=""){
             values.clear();
             values.put(ContactsContract.Data.RAW_CONTACT_ID,rawContactId);
             values.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE);
-            values.put(ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME,(String)contactName.getText());
+            values.put(ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME,contactHName.getText()+"("+getIntent().getStringExtra("contactHGovern")+"座宿管)");
             contentResolver.insert(ContactsContract.Data.CONTENT_URI,values);
         }
-        if(contactPhone.getText()!=""){
+        if(contactHPhone.getText()!=""){
             values.clear();
             values.put(ContactsContract.Data.RAW_CONTACT_ID,rawContactId);
             values.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
-            values.put(ContactsContract.CommonDataKinds.Phone.NUMBER,getIntent().getStringExtra("contactPhone"));
+            values.put(ContactsContract.CommonDataKinds.Phone.NUMBER,getIntent().getStringExtra("contactHPhone"));
             values.put(ContactsContract.CommonDataKinds.Phone.TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE);
             contentResolver.insert(ContactsContract.Data.CONTENT_URI,values);
         }
         values.clear();
-        Toast.makeText(AddContactsActivity.this,"添加成功",Toast.LENGTH_SHORT).show();
+        Toast.makeText(AddContactsHActivity.this,"添加成功",Toast.LENGTH_SHORT).show();
 
     }
 

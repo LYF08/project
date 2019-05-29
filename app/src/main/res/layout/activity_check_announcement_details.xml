@@ -25,9 +25,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginLeft="15dp"
         android:layout_below="@id/toolbar_details"
-        android:gravity="center"
-        android:clickable="true"
-        android:focusable="true"/>
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/tv_houseparentID"
@@ -39,7 +37,9 @@
         android:layout_marginTop="60dp"
         android:gravity="center"
         android:textSize="18sp"
-        android:text="无"/>
+        android:text="无"
+        android:clickable="true"
+        android:focusable="true"/>
 
     <TextView
         android:id="@+id/ID"

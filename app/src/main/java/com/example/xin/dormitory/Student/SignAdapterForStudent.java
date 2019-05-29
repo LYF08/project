@@ -3,6 +3,7 @@ package com.example.xin.dormitory.Student;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -122,7 +123,12 @@ public class SignAdapterForStudent extends RecyclerView.Adapter<SignAdapterForSt
                         try {
                             JSONObject jsonObject = new JSONObject(responseData);
                             //TODO 你来写,jsonObject的内容有：ID,name,govern,phone,password。分别代表宿管ID，宿管姓名，宿管管理楼层，宿管手机号，宿管密码，不一定全部用到
-
+                            Intent intent = new Intent(MyApplication.getContext(),AddContactsHActivity.class);
+                            intent.putExtra("contactHName",jsonObject.getString("name"));
+                            intent.putExtra("contactHID",jsonObject.getString("ID"));
+                            intent.putExtra("contactHPhone",jsonObject.getString("phone"));
+                            intent.putExtra("contactHGovern",jsonObject.getString("govern"));
+                            MyApplication.getContext().startActivity(intent);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
