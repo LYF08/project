@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 if(!(et_host.getText().toString()).equals("")) {
                                     HttpUtil.host = et_host.getText().toString();
-                                    HttpUtil.address = "http://"+et_host.getText().toString()+":8080/dormitoryPHP/";
+                                    HttpUtil.address = "http://"+et_host.getText().toString()+":80/dormitoryPHP/";
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
