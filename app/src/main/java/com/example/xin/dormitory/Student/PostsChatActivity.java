@@ -191,8 +191,9 @@ public class PostsChatActivity extends AppCompatActivity {
      */
     public void connect(){
         //host和port与服务端server.php里的保持一致,看一下server.php文件。。
+        //注意要在宝塔面板放行相应端口
         final String host = HttpUtil.host;
-        final int port = 8888;
+        final int port = 8889;
         AsyncTask<Void, String , Void> read = new AsyncTask<Void, String, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
