@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: 2019-03-26 13:55:49
--- 服务器版本： 5.7.17-log
--- PHP Version: 5.6.30
+-- 主机： 127.0.0.1
+-- 生成日期： 2020-03-06 16:28:38
+-- 服务器版本： 10.4.8-MariaDB
+-- PHP 版本： 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dormitory`
+-- 数据库： `dormitory`
 --
 
 -- --------------------------------------------------------
@@ -99,7 +101,7 @@ INSERT INTO `postsinfo` (`PostsID`, `LatestReplyTime`, `PostsDate`, `ID`, `name`
 (10, '2019-03-18 20:21:54', '2019-03-18 20:21:21', '10002', 'abc', '十', ''),
 (13, '2019-03-20 10:40:38', '2019-03-19 12:58:00', '10001', 'admin', '龙门', ''),
 (14, '2019-03-20 19:42:06', '2019-03-20 19:35:07', '10001', 'admin', '何', ''),
-(15, '2019-03-20 19:35:50', '2019-03-20 19:35:50', '10001', 'admin', '快乐', '');
+(15, '2020-02-27 21:32:52', '2019-03-20 19:35:50', '10001', 'admin', '快乐', '');
 
 -- --------------------------------------------------------
 
@@ -111,13 +113,13 @@ CREATE TABLE `repairinfo` (
   `ApplyID` int(10) UNSIGNED NOT NULL,
   `ApplyDate` datetime NOT NULL,
   `dormID` varchar(10) NOT NULL,
-  `RepairName` text,
-  `DamageCause` text,
-  `Details` text,
+  `RepairName` text DEFAULT NULL,
+  `DamageCause` text DEFAULT NULL,
+  `Details` text DEFAULT NULL,
   `Contact` varchar(11) NOT NULL,
-  `OtherRemarks` text,
+  `OtherRemarks` text DEFAULT NULL,
   `belong` varchar(12) NOT NULL,
-  `Status` smallint(1) NOT NULL DEFAULT '0'
+  `Status` smallint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -152,7 +154,11 @@ INSERT INTO `sendmessageinfo` (`SendTime`, `SenderID`, `SenderName`, `PostsID`, 
 ('2019-03-19 22:45:11', '10001', 'admin', 9, '快乐'),
 ('2019-03-20 10:40:32', '10001', 'admin', 13, '歌'),
 ('2019-03-20 10:40:38', '10001', 'admin', 13, '哦哦哦'),
-('2019-03-20 19:42:06', '10001', 'admin', 14, '龙猫');
+('2019-03-20 19:42:06', '10001', 'admin', 14, '龙猫'),
+('2020-02-27 19:29:50', '1', '1同学', 15, '有'),
+('2020-02-27 19:30:43', '10', '10同学', 15, '有'),
+('2020-02-27 20:01:06', '1', '1同学', 15, '嗯'),
+('2020-02-27 21:32:52', '1', '1同学', 15, '嗯');
 
 -- --------------------------------------------------------
 
@@ -189,23 +195,25 @@ CREATE TABLE `signrecord` (
   `ID` int(11) NOT NULL,
   `Rtime` datetime NOT NULL,
   `houseparentID` varchar(12) NOT NULL,
-  `nums` smallint(6) NOT NULL DEFAULT '0',
+  `nums` smallint(6) NOT NULL DEFAULT 0,
   `title` varchar(30) NOT NULL,
   `govern` varchar(12) NOT NULL,
-  `totalnums` smallint(6) NOT NULL
+  `totalnums` smallint(6) NOT NULL,
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `signrecord`
 --
 
-INSERT INTO `signrecord` (`ID`, `Rtime`, `houseparentID`, `nums`, `title`, `govern`, `totalnums`) VALUES
-(1, '0000-00-00 00:00:00', '12', 0, '我的第一次签到', 'A', 0),
-(2, '0000-00-00 00:00:00', '12', 0, '我的第一次签到', 'A', 0),
-(3, '2019-03-09 15:53:05', '12', 2, '第三次签到', 'A', 2),
-(5, '2019-03-09 19:44:52', '12', 0, '第四次签到', 'A', 3),
-(6, '2019-03-09 19:53:22', '1', 0, '第五次签到', 'A', 3),
-(7, '2019-03-09 20:02:56', '1', 3, '第七次签到一定要成功啊', 'A', 3);
+INSERT INTO `signrecord` (`ID`, `Rtime`, `houseparentID`, `nums`, `title`, `govern`, `totalnums`, `latitude`, `longitude`) VALUES
+(1, '0000-00-00 00:00:00', '12', 0, '我的第一次签到', 'A', 0, 0, 0),
+(2, '0000-00-00 00:00:00', '12', 0, '我的第一次签到', 'A', 0, 0, 0),
+(3, '2019-03-09 15:53:05', '12', 2, '第三次签到', 'A', 2, 0, 0),
+(5, '2019-03-09 19:44:52', '12', 0, '第四次签到', 'A', 3, 0, 0),
+(6, '2019-03-09 19:53:22', '1', 0, '第五次签到', 'A', 3, 0, 0),
+(7, '2019-03-09 20:02:56', '1', 3, '第七次签到一定要成功啊', 'A', 3, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -292,68 +300,68 @@ INSERT INTO `userinfoh` (`ID`, `name`, `govern`, `phone`, `password`) VALUES
 ('20003', 'C栋宿管', 'C', '1654649894', '123456');
 
 --
--- Indexes for dumped tables
+-- 转储表的索引
 --
 
 --
--- Indexes for table `announcement`
+-- 表的索引 `announcement`
 --
 ALTER TABLE `announcement`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `houseparentID` (`houseparentID`);
 
 --
--- Indexes for table `departinfo`
+-- 表的索引 `departinfo`
 --
 ALTER TABLE `departinfo`
   ADD PRIMARY KEY (`departID`);
 
 --
--- Indexes for table `postsinfo`
+-- 表的索引 `postsinfo`
 --
 ALTER TABLE `postsinfo`
   ADD PRIMARY KEY (`PostsID`);
 
 --
--- Indexes for table `repairinfo`
+-- 表的索引 `repairinfo`
 --
 ALTER TABLE `repairinfo`
   ADD PRIMARY KEY (`ApplyID`);
 
 --
--- Indexes for table `sendmessageinfo`
+-- 表的索引 `sendmessageinfo`
 --
 ALTER TABLE `sendmessageinfo`
   ADD PRIMARY KEY (`SendTime`,`SenderID`,`PostsID`);
 
 --
--- Indexes for table `signed`
+-- 表的索引 `signed`
 --
 ALTER TABLE `signed`
   ADD PRIMARY KEY (`SID`,`recordID`),
   ADD KEY `recordID` (`recordID`);
 
 --
--- Indexes for table `signrecord`
+-- 表的索引 `signrecord`
 --
 ALTER TABLE `signrecord`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `houseparentID` (`houseparentID`);
 
 --
--- Indexes for table `stayinfo`
+-- 表的索引 `stayinfo`
 --
 ALTER TABLE `stayinfo`
   ADD PRIMARY KEY (`stayID`);
 
 --
--- Indexes for table `userinfo`
+-- 表的索引 `userinfo`
 --
 ALTER TABLE `userinfo`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `userinfoh`
+-- 表的索引 `userinfoh`
 --
 ALTER TABLE `userinfoh`
   ADD PRIMARY KEY (`ID`);
@@ -367,31 +375,37 @@ ALTER TABLE `userinfoh`
 --
 ALTER TABLE `announcement`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- 使用表AUTO_INCREMENT `departinfo`
 --
 ALTER TABLE `departinfo`
   MODIFY `departID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- 使用表AUTO_INCREMENT `postsinfo`
 --
 ALTER TABLE `postsinfo`
   MODIFY `PostsID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
 -- 使用表AUTO_INCREMENT `repairinfo`
 --
 ALTER TABLE `repairinfo`
   MODIFY `ApplyID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
 -- 使用表AUTO_INCREMENT `signrecord`
 --
 ALTER TABLE `signrecord`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- 使用表AUTO_INCREMENT `stayinfo`
 --
 ALTER TABLE `stayinfo`
   MODIFY `stayID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- 限制导出的表
 --
@@ -407,6 +421,7 @@ ALTER TABLE `announcement`
 --
 ALTER TABLE `signrecord`
   ADD CONSTRAINT `signrecord_ibfk_1` FOREIGN KEY (`houseparentID`) REFERENCES `userinfoh` (`ID`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
