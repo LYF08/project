@@ -1,9 +1,9 @@
 package com.example.xin.dormitory.Student;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
@@ -14,7 +14,6 @@ import com.example.xin.dormitory.R;
 import com.example.xin.dormitory.Utility.HttpUtil;
 import com.example.xin.dormitory.Utility.MyApplication;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 

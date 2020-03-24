@@ -1,16 +1,15 @@
 package com.example.xin.dormitory.Houseparent;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.example.xin.dormitory.R;
-import com.example.xin.dormitory.Student.CheckNoticesActivity;
 
 public class CheckStayAndDepartActivity extends AppCompatActivity {
 

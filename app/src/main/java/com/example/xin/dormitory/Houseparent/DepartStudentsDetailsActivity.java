@@ -1,24 +1,12 @@
 package com.example.xin.dormitory.Houseparent;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import androidx.appcompat.widget.Toolbar;
+
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.xin.dormitory.R;
-import com.example.xin.dormitory.Utility.HttpUtil;
-import com.example.xin.dormitory.Utility.MyApplication;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 /**
  * 离宿学生详情类

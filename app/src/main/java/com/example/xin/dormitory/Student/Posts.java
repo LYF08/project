@@ -1,7 +1,5 @@
 package com.example.xin.dormitory.Student;
 
-import android.support.v7.widget.LinearLayoutManager;
-
 public class Posts {
     private int imageId;
     private String publisherName;
